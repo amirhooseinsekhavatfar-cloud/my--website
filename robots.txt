@@ -5,4 +5,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://your-domain.example/sitemap.xml
+Sitemap: https://portfolio-nine-coral-fdlqcpfen8.vercel.app/

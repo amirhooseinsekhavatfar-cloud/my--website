@@ -2,15 +2,15 @@
 <rss version="2.0">
   <channel>
     <title>Amir Hosin Sekhavatfar — Blog</title>
-    <link>https://your-domain.example</link>
+    <link> https://portfolio-nine-coral-fdlqcpfen8.vercel.app/</link>
     <description>Latest articles on PLC, IoT, embedded systems and industrial automation.</description>
     <language>en</language>
     <lastBuildDate>Tue, 04 Aug 2026 18:31:15 +0000</lastBuildDate>
     <item>
       <title>Sample Post Title</title>
-      <link>https://your-domain.example/#blog</link>
+      <link>https://portfolio-nine-coral-fdlqcpfen8.vercel.app/</link>
       <guid isPermaLink="false">https://your-domain.example/#blog#sample-post-title</guid>
-      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>https://portfolio-nine-coral-fdlqcpfen8.vercel.app/
       <description>A short excerpt describing this blog post.</description>
     </item>
   </channel>

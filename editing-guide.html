@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>راهنمای ویرایش سایت — امیرحسین سخاوت‌فر</title>
+<style>
+  :root{
+    --bg:#0A0D10; --bg2:#12171C; --bg3:#0D1114;
+    --ac:#FFB020; --ac2:#29D3C7; --ac3:#6EE7A8; --fault:#FF5D5D;
+    --glow:rgba(255,176,32,.32); --glow2:rgba(41,211,199,.16);
+    --tx:#E8EDF0; --tx2:#8695A0; --tx3:#4A5760;
+    --bdr:rgba(255,176,32,.15); --glass:rgba(18,23,28,.72); --glass2:rgba(255,176,32,.07);
+    --r:8px; --r2:14px;
+    --mo:'Consolas','JetBrains Mono',monospace;
+    --fa:Tahoma,'Segoe UI',Vazirmatn,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:
+      radial-gradient(circle at 3px 3px, rgba(41,211,199,.3) 1px, transparent 1.6px) 0 0/46px 46px,
+      linear-gradient(rgba(255,176,32,.045) 1px, transparent 1px) 0 0/46px 46px,
+      linear-gradient(90deg, rgba(255,176,32,.045) 1px, transparent 1px) 0 0/46px 46px,
+      var(--bg);
+    color:var(--tx); font-family:var(--fa); line-height:1.85; min-height:100vh;
+  }
+  a{color:var(--ac2)}
+  ::selection{background:var(--ac);color:#10151A}
+
+  /* ── هدر ── */
+  header{
+    padding:64px 24px 48px; text-align:center;
+    border-bottom:1px solid var(--bdr);
+    background:linear-gradient(180deg, rgba(255,176,32,.06), transparent);
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:6px 14px; border:1px solid var(--bdr); border-radius:4px;
+    background:var(--glass2); color:var(--ac2); font-family:var(--mo);
+    font-size:.75rem; letter-spacing:.14em; margin-bottom:20px;
+  }
+  .eyebrow::before{
+    content:''; width:7px; height:7px; border-radius:50%; background:var(--ac);
+    box-shadow:0 0 8px var(--ac); animation:blink 2.2s ease-in-out infinite;
+  }
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+  h1{
+    font-size:clamp(1.7rem,4vw,2.5rem); font-weight:800; margin-bottom:14px;
+    background:linear-gradient(90deg,var(--ac2),var(--ac3),var(--ac));
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  header p{color:var(--tx2); max-width:560px; margin:0 auto; font-size:1rem}
+
+  /* ── چیدمان کلی ── */
+  .wrap{display:flex; max-width:1180px; margin:0 auto; gap:40px; padding:48px 24px 100px; align-items:flex-start}
+  nav.toc{
+    position:sticky; top:24px; flex-shrink:0; width:230px;
+    background:var(--glass); border:1px solid var(--bdr); border-radius:var(--r2);
+    padding:18px; display:flex; flex-direction:column; gap:4px;
+  }
+  nav.toc .toc-label{font-family:var(--mo); font-size:.68rem; color:var(--tx3); letter-spacing:.1em; margin-bottom:10px; padding:0 8px}
+  nav.toc a{
+    display:block; padding:9px 10px; border-radius:6px; color:var(--tx2);
+    text-decoration:none; font-size:.85rem; transition:.2s; border-inline-start:2px solid transparent;
+  }
+  nav.toc a:hover{background:var(--glass2); color:var(--tx)}
+  nav.toc a.active{color:var(--ac2); border-inline-start-color:var(--ac2); background:var(--glass2)}
+
+  main{flex:1; min-width:0; display:flex; flex-direction:column; gap:20px}
+
+  section{
+    background:var(--glass); border:1px solid rgba(255,255,255,.07); border-radius:var(--r2);
+    padding:30px 32px; position:relative; scroll-margin-top:24px;
+  }
+  section::before{
+    content:''; position:absolute; top:0; left:20px; right:20px; height:2px;
+    background:linear-gradient(90deg,transparent,var(--tx3),transparent);
+  }
+  section:hover::before{background:linear-gradient(90deg,transparent,var(--ac2),transparent)}
+
+  .sec-tag{
+    display:inline-flex; align-items:center; gap:8px; font-family:var(--mo); font-size:.72rem;
+    color:var(--ac2); border:1px solid var(--bdr); background:var(--glass2);
+    padding:4px 11px; border-radius:3px; letter-spacing:.1em; margin-bottom:14px;
+  }
+  section h2{font-size:1.25rem; font-weight:700; margin-bottom:6px}
+  section > p.desc{color:var(--tx2); font-size:.92rem; margin-bottom:20px}
+
+  /* ── جدول نقشه‌ی فایل‌ها ── */
+  table{width:100%; border-collapse:collapse; font-size:.88rem}
+  th{
+    text-align:right; font-family:var(--mo); font-size:.7rem; color:var(--tx3);
+    letter-spacing:.08em; padding:0 10px 10px; border-bottom:1px solid var(--bdr);
+  }
+  td{padding:12px 10px; border-bottom:1px solid rgba(255,255,255,.05); vertical-align:top}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:rgba(255,255,255,.02)}
+  .section-name{font-weight:600; color:var(--tx)}
+  code, .path{
+    font-family:var(--mo); font-size:.82em; background:rgba(255,176,32,.1);
+    color:var(--ac); padding:2px 7px; border-radius:4px; white-space:nowrap;
+  }
+  .note{color:var(--tx3); font-size:.85em}
+
+  /* ── بلوک کد ── */
+  .code-block{
+    position:relative; background:#05070a; border:1px solid rgba(255,255,255,.08);
+    border-radius:var(--r); margin:14px 0; overflow:hidden;
+  }
+  .code-block .cb-head{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:9px 14px; background:rgba(255,255,255,.03); border-bottom:1px solid rgba(255,255,255,.06);
+    font-family:var(--mo); font-size:.7rem; color:var(--tx3);
+  }
+  .code-block pre{
+    padding:16px; overflow-x:auto; font-family:var(--mo); font-size:.82rem; color:var(--ac3); direction:ltr; text-align:left;
+  }
+  .copy-btn{
+    background:var(--glass2); border:1px solid var(--bdr); color:var(--tx2);
+    font-family:var(--fa); font-size:.72rem; padding:4px 10px; border-radius:5px;
+    cursor:pointer; transition:.2s;
+  }
+  .copy-btn:hover{border-color:var(--ac2); color:var(--ac2)}
+  .copy-btn.copied{border-color:var(--ac3); color:var(--ac3)}
+
+  /* ── جعبه‌ی هشدار ── */
+  .callout{
+    display:flex; gap:14px; padding:18px 20px; border-radius:var(--r); margin:18px 0;
+    border:1px solid rgba(255,176,32,.3); background:rgba(255,176,32,.06);
+  }
+  .callout .ic{font-size:1.3rem; flex-shrink:0}
+  .callout.tip{border-color:rgba(41,211,199,.3); background:rgba(41,211,199,.06)}
+  .callout b{color:var(--ac)}
+  .callout.tip b{color:var(--ac2)}
+
+  /* ── مراحل گام‌به‌گام ── */
+  ol.steps{list-style:none; counter-reset:step; display:flex; flex-direction:column; gap:14px}
+  ol.steps li{
+    counter-increment:step; position:relative; padding-inline-start:44px; font-size:.92rem; color:var(--tx2);
+  }
+  ol.steps li::before{
+    content:counter(step); position:absolute; inset-inline-start:0; top:-2px;
+    width:28px; height:28px; border-radius:50%; background:var(--glass2); border:1px solid var(--bdr);
+    color:var(--ac); font-family:var(--mo); font-weight:700; font-size:.8rem;
+    display:flex; align-items:center; justify-content:center;
+  }
+  ol.steps b{color:var(--tx)}
+
+  footer{text-align:center; padding:40px 24px 60px; color:var(--tx3); font-size:.82rem; font-family:var(--mo)}
+
+  @media (max-width:860px){
+    .wrap{flex-direction:column}
+    nav.toc{position:static; width:100%; flex-direction:row; overflow-x:auto; white-space:nowrap}
+    nav.toc a{border-inline-start:none; border-bottom:2px solid transparent}
+    nav.toc a.active{border-bottom-color:var(--ac2)}
+    table, thead, tbody, th, td, tr{display:block}
+    th{display:none}
+    td{border-bottom:none; padding:4px 10px}
+    tr{border-bottom:1px solid rgba(255,255,255,.08); padding:12px 0; display:block}
+    tr td:first-child{font-weight:700; color:var(--ac2)}
+  }
+  a:focus-visible, button:focus-visible{outline:2px solid var(--ac2); outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">GUIDE // راهنمای سایت</div>
+  <h1>راهنمای ویرایش پورتفولیو</h1>
+  <p>یه مرجع ساده که می‌گه هر تغییری رو دقیقاً کجا اعمال کنی — بدون نیاز به دونستن کد.</p>
+</header>
+
+<div class="wrap">
+
+  <nav class="toc" id="toc">
+    <div class="toc-label">فهرست</div>
+    <a href="#overview">۰۱ نگاه کلی</a>
+    <a href="#filemap">۰۲ کدوم فایل، کدوم بخش</a>
+    <a href="#addremove">۰۳ افزودن / حذف آیتم</a>
+    <a href="#images">۰۴ عکس و ویدیو</a>
+    <a href="#tools">۰۵ ابزارهای مهندسی</a>
+    <a href="#help">۰۶ اگه گیر کردی</a>
+  </nav>
+
+  <main>
+
+    <section id="overview">
+      <div class="sec-tag">● 01 — OVERVIEW</div>
+      <h2>نگاه کلی</h2>
+      <p class="desc">این پروژه از فایل‌های جدا برای هر بخش استفاده می‌کنه — یعنی برای تغییر «پروژه‌ها» فقط
+      یه فایل رو باز می‌کنی، بدون این‌که با HTML یا CSS اصلی کاری داشته باشی.</p>
+      <div class="callout tip">
+        <div class="ic">✅</div>
+        <div><b>هر تغییری که توی فایل‌های <span class="path">js/data/</span> بدی، همون لحظه که فایل رو
+        سیو کنی و صفحه رو رفرش کنی روی سایت دیده می‌شه</b> — هیچ مرحله‌ی اضافه، ساخت، یا Bundle‌ای لازم نیست.</div>
+      </div>
+      <div class="callout">
+        <div class="ic">💡</div>
+        <div><b>قانون طلایی:</b> محتوا (متن، عکس، ویدیو، لینک) همیشه توی پوشه‌ی <span class="path">js/data/</span> ـه.
+        ظاهر و چیدمان توی <span class="path">css/</span> ـه. کارِ عمیق‌تر توی <span class="path">js/interactions.js</span> و <span class="path">js/app.js</span>.</div>
+      </div>
+    </section>
+
+    <section id="filemap">
+      <div class="sec-tag">● 02 — FILE MAP</div>
+      <h2>کدوم فایل، مال کدوم بخشه</h2>
+      <p class="desc">برای ویرایش محتوای هر بخش، دقیقاً همین فایل رو باز کن.</p>
+      <table>
+        <thead><tr><th>بخش سایت</th><th>فایل</th><th>توضیح</th></tr></thead>
+        <tbody>
+          <tr><td class="section-name">مهارت‌ها</td><td><span class="path">js/data/skills.js</span></td><td class="note">اسم مهارت + درصد</td></tr>
+          <tr><td class="section-name">پروژه‌ها</td><td><span class="path">js/data/projects.js</span></td><td class="note">عنوان، توضیح، تگ، لینک، عکس</td></tr>
+          <tr><td class="section-name">دستاوردها / نشان‌ها (Badges & Milestones)</td><td><span class="path">js/data/achievements.js</span></td><td class="note">—</td></tr>
+          <tr><td class="section-name">آخرین مقالات (Latest Posts)</td><td><span class="path">js/data/blog-posts.js</span></td><td class="note">عنوان، توضیح، دسته، عکس، لینک</td></tr>
+          <tr><td class="section-name">آخرین فعالیت‌ها (Latest Activity)</td><td><span class="path">js/data/latest-activity.js</span></td><td class="note">—</td></tr>
+          <tr><td class="section-name">مهارت‌ها و تجربه (Skills & Experience)</td><td><span class="path">js/data/experience.js</span></td><td class="note">ابزار/تایم‌لاین/گواهی، سه بخش تو یه فایل</td></tr>
+          <tr><td class="section-name">پست‌های فید</td><td><span class="path">js/data/posts.js</span></td><td class="note">متن، عکس، ویدیو، هشتگ</td></tr>
+          <tr><td class="section-name">تنظیمات پروفایل فید</td><td><span class="path">js/data/posts-settings.js</span></td><td class="note">اسم، بیو، آمار فالوور</td></tr>
+          <tr><td class="section-name">ریلز و ویدیوهای مهندسی</td><td><span class="path">js/data/videos.js</span></td><td class="note">همه از همین یه فایل</td></tr>
+          <tr><td class="section-name">کدها / اسنیپت‌ها</td><td><span class="path">js/data/codes.js</span></td><td class="note">—</td></tr>
+          <tr><td class="section-name">کتابخانه PDF</td><td><span class="path">js/data/pdfs.js</span></td><td class="note">—</td></tr>
+          <tr><td class="section-name">لیست سیم‌لینک</td><td><span class="path">js/data/simlink-posts.js</span></td><td class="note">—</td></tr>
+          <tr><td class="section-name">اطلاعات کلی سایت</td><td><span class="path">js/data/site-config.js</span></td><td class="note">ایمیل، تلگرام، گیت‌هاب، شماره</td></tr>
+          <tr><td class="section-name">دانش چت‌بات</td><td><span class="path">js/data/chatbot-knowledge.js</span></td><td class="note">پاسخ‌های فنی</td></tr>
+          <tr><td class="section-name">سوالات پیشنهادی چت</td><td><span class="path">js/data/faq-knowledge.js</span></td><td class="note">لیست توپ شناور چت</td></tr>
+          <tr><td class="section-name">ابزارهای مهندسی</td><td><span class="path">index.html</span></td><td class="note">بخش <span class="path">id="eng-tools"</span></td></tr>
+          <tr><td class="section-name">تنظیمات چت‌بات</td><td><span class="path">js/chatbot/config.js</span></td><td class="note">سرعت تایپ، تعداد نتایج</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="addremove">
+      <div class="sec-tag">● 03 — ADD / REMOVE</div>
+      <h2>افزودن یا حذف یه آیتم</h2>
+      <p class="desc">همه‌ی فایل‌های <span class="path">js/data/</span> از یه الگوی ساده پیروی می‌کنن: یه لیست از بلوک‌های <code>{ ... }</code>.</p>
+
+      <b style="display:block;margin-bottom:6px;color:var(--tx)">برای حذف:</b>
+      <p style="color:var(--tx2);font-size:.9rem;margin-bottom:16px">کل بلوک <code>{ ... }</code> مربوط به همون آیتم رو با کاما بعدش پاک کن.</p>
+
+      <b style="display:block;margin-bottom:6px;color:var(--tx)">برای افزودن:</b>
+      <p style="color:var(--tx2);font-size:.9rem;margin-bottom:4px">یه بلوک شبیه بقیه رو کپی کن، زیرش بچسبون (با کاما جدا کن)، مقادیرش رو عوض کن:</p>
+      <div class="code-block">
+        <div class="cb-head"><span>js/data/projects.js</span><button class="copy-btn" onclick="copyCode(this)">کپی</button></div>
+        <pre>{
+  cat: 'plc',
+  gradient: 'linear-gradient(135deg,#0D1319,#0d1b3e)',
+  icon: 'fa-solid fa-microchip',
+  featured: false,
+  titleEn: 'My New Project',
+  titleFa: 'پروژه‌ی جدید من',
+  descEn: 'Short description here.',
+  descFa: 'توضیح کوتاه اینجا.',
+  tags: 'PLC,ESP32',
+  github: '#',
+  demo: '#'
+}</pre>
+      </div>
+      <div class="callout">
+        <div class="ic">⚠️</div>
+        <div>ترتیب و اسمِ فیلدها (<code>titleEn</code>, <code>descFa</code> و…) باید دقیقاً مثل بقیه‌ی آیتم‌ها بمونه، وگرنه سایت اون آیتم رو درست نشون نمی‌ده.</div>
+      </div>
+    </section>
+
+    <section id="images">
+      <div class="sec-tag">● 04 — IMAGES &amp; VIDEO</div>
+      <h2>افزودن عکس یا ویدیو (پروژه‌ها، پست‌ها)</h2>
+
+      <b style="display:block;margin-bottom:6px;color:var(--tx)">عکس در پروژه‌ها:</b>
+      <ol class="steps">
+        <li><b>عکس رو آپلود کن:</b> فایل عکس رو بریز توی پوشه‌ی <span class="path">assets/img/projects/</span>.</li>
+        <li><b>مسیرش رو بذار:</b> توی <span class="path">js/data/projects.js</span>، به همون آیتم یه خط اضافه کن:</li>
+      </ol>
+      <div class="code-block">
+        <div class="cb-head"><span>مثال — عکس</span><button class="copy-btn" onclick="copyCode(this)">کپی</button></div>
+        <pre>image: 'assets/img/projects/plc-sim.jpg'</pre>
+      </div>
+
+      <b style="display:block;margin:22px 0 6px;color:var(--tx)">ویدیو در پروژه‌ها — فقط با لینک، بدون آپلود فایل:</b>
+      <p style="color:var(--tx2);font-size:.9rem;margin-bottom:10px">لینک یوتیوب، آپارات، یا لینک مستقیم یه فایل mp4 رو بذار:</p>
+      <div class="code-block">
+        <div class="cb-head"><span>مثال — ویدیو</span><button class="copy-btn" onclick="copyCode(this)">کپی</button></div>
+        <pre>video: 'https://youtu.be/xxxxxxx'</pre>
+      </div>
+      <p style="color:var(--tx2);font-size:.9rem">وقتی <code>video</code> بذاری، یه دکمه‌ی «ویدیو» کنار GitHub/Demo اضافه می‌شه که با کلیک، ویدیو رو تمام‌صفحه پخش می‌کنه.</p>
+
+      <b style="display:block;margin:22px 0 6px;color:var(--tx)">عکس و ویدیو در پست‌های فید:</b>
+      <p style="color:var(--tx2);font-size:.9rem;margin-bottom:10px">دقیقاً همین دو فیلد توی <span class="path">js/data/posts.js</span> هم از قبل کار می‌کنه:</p>
+      <div class="code-block">
+        <div class="cb-head"><span>js/data/posts.js</span><button class="copy-btn" onclick="copyCode(this)">کپی</button></div>
+        <pre>image: 'assets/img/posts/my-photo.jpg',
+video: 'https://youtu.be/xxxxxxx'</pre>
+      </div>
+
+      <div class="callout tip">
+        <div class="ic">💡</div>
+        <div>اگه <code>image</code> یا <code>video</code> نذاری، همون ظاهر پیش‌فرض (گرادیان + آیکون) نشون داده می‌شه — پس هیچ‌وقت چیزی خراب نمی‌شه.</div>
+      </div>
+    </section>
+
+    <section id="tools">
+      <div class="sec-tag">● 05 — ENGINEERING TOOLS</div>
+      <h2>اضافه‌کردن یه ابزار مهندسی جدید</h2>
+      <ol class="steps">
+        <li><b>فایل HTML ابزار رو بذار:</b> توی پوشه‌ی <span class="path">tools/</span> (کنار <span class="path">index.html</span>).</li>
+        <li><b>یه کارت جدید بساز:</b> توی <span class="path">index.html</span> دنبال <span class="path">id="eng-tools"</span> بگرد، یه بلوک <span class="path">.tool-card</span> کپی کن و مسیر/عنوان/توضیحش رو عوض کن.</li>
+        <li><b>مسیر فایل رو بذار:</b> توی <span class="path">onclick="openEngTool('...')"</span> همون مسیر فایلت رو دقیق بنویس.</li>
+      </ol>
+    </section>
+
+    <section id="help">
+      <div class="sec-tag">● 06 — TROUBLESHOOTING</div>
+      <h2>اگه یه جا گیر کردی</h2>
+      <p class="desc" style="margin-bottom:0">راحت‌ترین راه همیشه اینه: بگو دقیقاً چی می‌خوای عوض بشه (یا فایلِ ویرایش‌شده رو بفرست)، من همون فایل رو برات کامل می‌کنم و نسخه‌ی آماده‌ی آپلود رو برمی‌گردونم.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer>PORTFOLIO EDITING GUIDE · امیرحسین سخاوت‌فر</footer>
+
+<script>
+  // کپی کردن بلوک‌های کد با یه کلیک — با یه راه جایگزین برای مرورگرهایی
+  // که اجازه‌ی دسترسی مستقیم به کلیپ‌بورد رو نمی‌دن (مثلاً باز کردن فایل به‌صورت محلی)
+  function copyCode(btn){
+    const pre = btn.closest('.code-block').querySelector('pre');
+    const text = pre.textContent.trim();
+
+    function showCopied(){
+      const orig = btn.textContent;
+      btn.textContent = 'کپی شد ✓';
+      btn.classList.add('copied');
+      setTimeout(()=>{ btn.textContent = orig; btn.classList.remove('copied'); }, 1600);
+    }
+
+    function fallbackCopy(){
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try { document.execCommand('copy'); showCopied(); }
+      catch (e) { /* حتی اگه این هم نشد، حداقل خطایی توی کنسول نمی‌ندازیم */ }
+      document.body.removeChild(ta);
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(showCopied).catch(fallbackCopy);
+    } else {
+      fallbackCopy();
+    }
+  }
+
+  // هایلایت‌کردن آیتم فعال توی فهرست، بر اساس بخشی که در دیدرسه
+  const sections = document.querySelectorAll('main section');
+  const links = document.querySelectorAll('nav.toc a');
+  const map = {};
+  links.forEach(l => map[l.getAttribute('href').slice(1)] = l);
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      const link = map[e.target.id];
+      if (!link) return;
+      if (e.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => io.observe(s));
+</script>
+
+</body>
+</html>

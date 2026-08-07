@@ -1,0 +1,1182 @@
+
+<!--
+INTRO VIDEO PROMPT (metadata only — not used by this page)
+{
+  "scene": "Engineering Portfolio Intro",
+  "duration": "15s",
+  "style": "Cinematic Futuristic Technology",
+  "camera": "Dynamic Drone + Smooth Tracking",
+  "environment": "Dark futuristic laboratory filled with electronic circuits, oscilloscopes, ESP32 boards, IoT devices, solar panels, robotics systems and holographic interfaces",
+  "subject": "Young Electrical Engineering Student and IoT Developer working on advanced ESP32 projects",
+  "actions": [
+    "Electronic circuits illuminate with blue energy",
+    "ESP32 board powers up",
+    "Holographic dashboard appears",
+    "IoT devices connect in real time",
+    "Engineering projects emerge from digital particles",
+    "GitHub repositories float in holographic space",
+    "Solar energy monitoring system activates",
+    "Smart home automation interface appears",
+    "Portfolio projects showcase in cinematic sequence"
+  ],
+  "visual_effects": [
+    "Neon blue glow",
+    "Floating holograms",
+    "Particle effects",
+    "Energy waves",
+    "Digital transitions",
+    "Volumetric lighting"
+  ],
+  "text_sequence": [
+    "ali Sekhavatfar",
+    "Electrical Engineering Student",
+    "ESP32 & IoT Developer",
+    "Embedded Systems Engineer",
+    "Portfolio 2026"
+  ],
+  "quality": "Ultra Realistic",
+  "resolution": "4K",
+  "fps": "60",
+  "lighting": "Cinematic Blue Technology Lighting",
+  "color_palette": "Dark Black, Electric Blue, White",
+  "ending": "Camera zooms into futuristic portfolio dashboard displaying projects, GitHub profile and engineering achievements"
+}
+-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amir Hosin Sekhavatfar</title>
+<link rel="manifest" id="pwa-manifest">
+<script src="js/pwa-manifest.js" defer></script>
+<meta name="theme-color" content="#FF7A1A">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 320 320' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='160' cy='160' r='156' fill='%23050C18'/%3E%3Ccircle cx='160' cy='160' r='156' fill='none' stroke='%231E7FCC' stroke-width='4'/%3E%3Ctext x='160' y='185' text-anchor='middle' font-family='Segoe UI,Arial,sans-serif' font-weight='900' font-size='110' fill='%231E7FCC'%3EA%3C/text%3E%3C/svg%3E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AHS.dev">
+<meta name="description" content="Amir Hosin Sekhavatfar — Electrical Engineering student specializing in PLC, IoT, and industrial automation.">
+<meta property="og:title" content="Amir Hosin Sekhavatfar | Automation Engineer">
+<meta property="og:description" content="PLC programmer, IoT developer, Python enthusiast. Building the future through code and circuits.">
+<meta property="og:type" content="website">
+<!-- برای عکس پیش‌نمایش لینک (OG image)، یه عکس 1200x630 بذار توی assets/img/
+     و آدرسش رو این‌جا اضافه کن: <meta property="og:image" content="assets/img/og-cover.png"> -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Amir Hosin Sekhavatfar | Automation Engineer">
+<meta name="twitter:description" content="PLC programmer, IoT developer, Python enthusiast. Building the future through code and circuits.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Amir Hosin Sekhavatfar">
+<!-- اگه دامنه‌ی سایتت رو داری/عوض شده، لینک‌های canonical و rss زیر رو با آدرس واقعی خودت جایگزین کن -->
+<link rel="canonical" href="https://your-domain.example/">
+<link rel="alternate" type="application/rss+xml" title="Amir Hosin Sekhavatfar — Blog RSS" href="rss.xml">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Amir Hosin Sekhavatfar",
+  "jobTitle": "Electrical Engineering Student / PLC & IoT Developer",
+  "url": "https://your-domain.example/",
+  "email": "mailto:amirhooseinsekhavatfar@gmail.com",
+  "sameAs": [
+    "https://github.com/amirhooseinsekhavatfar-cloud",
+    "https://linkedin.com/in/amirhosins",
+    "https://t.me/AmirHosinSekhavatfar"
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/redesign-industrial.css">
+<link rel="stylesheet" href="css/simlink.css">
+<link rel="stylesheet" href="css/features.css">
+</head>
+<body>
+
+
+<!-- ═══════════════════ JSON-DRIVEN CINEMATIC VIDEO INTRO ═══════════════════ -->
+<!-- ویدیوی مقدماتی سینمایی (اینترو) -->
+<div id="video-intro">
+  <canvas id="vi-grid-canvas"></canvas>
+  <div class="vi-glow-wash"></div>
+  <div class="vi-scanlines"></div>
+
+  <div class="vi-chip vi-chip-pulse">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="viChipGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#FF7A1A"/>
+          <stop offset="100%" stop-color="#FFC857"/>
+        </linearGradient>
+      </defs>
+      <rect x="55" y="55" width="90" height="90" rx="6" fill="none" stroke="url(#viChipGrad)" stroke-width="2"/>
+      <rect x="68" y="68" width="64" height="64" rx="3" fill="rgba(255,122,26,0.12)" stroke="#7FE8A4" stroke-width="1"/>
+      <circle cx="100" cy="100" r="14" fill="none" stroke="#7FE8A4" stroke-width="1.5"/>
+      <g stroke="#35C7C2" stroke-width="2">
+        <line x1="55" y1="75" x2="35" y2="75"/><line x1="55" y1="100" x2="35" y2="100"/><line x1="55" y1="125" x2="35" y2="125"/>
+        <line x1="145" y1="75" x2="165" y2="75"/><line x1="145" y1="100" x2="165" y2="100"/><line x1="145" y1="125" x2="165" y2="125"/>
+        <line x1="75" y1="55" x2="75" y2="35"/><line x1="100" y1="55" x2="100" y2="35"/><line x1="125" y1="55" x2="125" y2="35"/>
+        <line x1="75" y1="145" x2="75" y2="165"/><line x1="100" y1="145" x2="100" y2="165"/><line x1="125" y1="145" x2="125" y2="165"/>
+      </g>
+      <g fill="#7FE8A4">
+        <circle cx="35" cy="75" r="3"/><circle cx="35" cy="100" r="3"/><circle cx="35" cy="125" r="3"/>
+        <circle cx="165" cy="75" r="3"/><circle cx="165" cy="100" r="3"/><circle cx="165" cy="125" r="3"/>
+        <circle cx="75" cy="35" r="3"/><circle cx="100" cy="35" r="3"/><circle cx="125" cy="35" r="3"/>
+        <circle cx="75" cy="165" r="3"/><circle cx="100" cy="165" r="3"/><circle cx="125" cy="165" r="3"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="vi-text-wrap">
+    <span class="vi-text" id="vi-text-target"></span>
+  </div>
+
+  <div class="vi-bars"><div class="vi-bar-top"></div><div class="vi-bar-bot"></div></div>
+  <button class="vi-skip" id="vi-skip-btn" type="button">Skip Intro »</button>
+</div>
+
+<!-- CINEMATIC INTRO -->
+<div id="cinema-intro">
+  <div class="cin-bars"><div class="cin-bar-top"></div><div class="cin-bar-bot"></div></div>
+  <div class="cin-logo-wrap">
+    <div class="cin-logo">&lt;AHS /&gt;</div>
+    <div class="cin-line"></div>
+    <div class="cin-tagline">Electrical Engineer · Automation · IoT</div>
+  </div>
+</div>
+<canvas id="particle-canvas"></canvas>
+
+<div id="scroll-progress"></div>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="bg-canvas"></canvas>
+
+<div id="loader">
+  <div class="loader-logo">&lt;AHS /&gt;</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-pct" id="lpct">0%</div>
+</div>
+
+<nav id="navbar">
+  <a href="#hero" class="nav-logo" style="gap:10px">
+    <svg width="34" height="34" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+      <circle cx="160" cy="160" r="156" fill="#050C18"/>
+      <circle cx="160" cy="160" r="154" fill="none" stroke="#071828" stroke-width="1"/>
+      <circle cx="160" cy="160" r="131" fill="none" stroke="#0C2848" stroke-width="0.5"/>
+      <circle cx="160" cy="160" r="156" fill="none" stroke="#163860" stroke-width="1.5" stroke-dasharray="1 7" stroke-linecap="round"/>
+      <line x1="160" y1="4"   x2="160" y2="18"  stroke="#1E7FCC" stroke-width="1.8"/>
+      <line x1="160" y1="302" x2="160" y2="316" stroke="#1E7FCC" stroke-width="1.8"/>
+      <line x1="4"   y1="160" x2="18"  y2="160" stroke="#1E7FCC" stroke-width="1.8"/>
+      <line x1="302" y1="160" x2="316" y2="160" stroke="#1E7FCC" stroke-width="1.8"/>
+      <circle cx="160" cy="4"   r="2.5" fill="#1E7FCC"/>
+      <circle cx="160" cy="316" r="2.5" fill="#1E7FCC"/>
+      <circle cx="4"   cy="160" r="2.5" fill="#1E7FCC"/>
+      <circle cx="316" cy="160" r="2.5" fill="#1E7FCC"/>
+      <path id="nl-arcT" d="M 35 160 A 125 125 0 0 1 285 160" fill="none"/>
+      <path id="nl-arcB" d="M 45 175 A 125 125 0 0 0 275 175" fill="none"/>
+      <text font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="500" fill="#2A6FAA" letter-spacing="2.5">
+        <textPath href="#nl-arcT" startOffset="50%" text-anchor="middle">AMIRHOSIN  SEKHAVATFAR  ·  ENGINEER</textPath>
+      </text>
+      <text font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="500" fill="#2A6FAA" letter-spacing="2.5">
+        <textPath href="#nl-arcB" startOffset="50%" text-anchor="middle">PLC  ·  ESP32  ·  IoT  ·  AUTOMATION</textPath>
+      </text>
+      <circle cx="160" cy="160" r="106" fill="#07101E" stroke="#0F2C50" stroke-width="1.2"/>
+      <circle cx="160" cy="100" r="32" fill="#060E1C" stroke="#1A5F9E" stroke-width="1.4"/>
+      <line x1="160" y1="80"  x2="160" y2="120" stroke="#1E7FCC" stroke-width="1.8"/>
+      <line x1="140" y1="100" x2="180" y2="100" stroke="#1E7FCC" stroke-width="1.8"/>
+      <circle cx="150" cy="90"  r="2.5" fill="#3FA0E8"/>
+      <circle cx="170" cy="90"  r="2.5" fill="#3FA0E8"/>
+      <circle cx="150" cy="110" r="2.5" fill="#3FA0E8"/>
+      <circle cx="170" cy="110" r="2.5" fill="#3FA0E8"/>
+      <circle cx="160" cy="100" r="6"   fill="none" stroke="#5BB8FF" stroke-width="1.3"/>
+      <circle cx="160" cy="100" r="2"   fill="#3FA0E8"/>
+      <text x="160" y="155" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-weight="800" font-size="19" fill="#D8EEFF" letter-spacing="3">AMIRHOSIN</text>
+      <line x1="90" y1="163" x2="230" y2="163" stroke="#0D2540" stroke-width="0.7"/>
+      <circle cx="90"  cy="163" r="2" fill="#1E7FCC"/>
+      <circle cx="230" cy="163" r="2" fill="#1E7FCC"/>
+      <text x="160" y="179" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-weight="300" font-size="9" fill="#3A80C0" letter-spacing="6">SEKHAVATFAR</text>
+      <text x="160" y="196" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-weight="500" font-size="7.5" fill="#1B5A90" letter-spacing="2.5">AUTOMATION ENGINEER</text>
+      <rect x="117" y="208" width="26" height="13" rx="4" fill="#1A5F9E"/>
+      <text x="130" y="218.5" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="700" fill="#04090F">PLC</text>
+      <rect x="147" y="208" width="34" height="13" rx="4" fill="#134880"/>
+      <text x="164" y="218.5" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="700" fill="#04090F">ESP32</text>
+      <rect x="185" y="208" width="26" height="13" rx="4" fill="#0D3262"/>
+      <text x="198" y="218.5" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="700" fill="#04090F">IoT</text>
+      <circle cx="72"  cy="160" r="4" fill="#07101E" stroke="#1A5F9E" stroke-width="1"/>
+      <circle cx="248" cy="160" r="4" fill="#07101E" stroke="#1A5F9E" stroke-width="1"/>
+      <circle cx="72"  cy="160" r="1.5" fill="#1E7FCC"/>
+      <circle cx="248" cy="160" r="1.5" fill="#1E7FCC"/>
+    </svg>
+    AHS<span>.dev</span>
+  </a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#hero" data-en="Home" data-fa="خانه">Home</a></li>
+    <li><a href="#about" data-en="About" data-fa="درباره">About</a></li>
+    <li><a href="#skills" data-en="Skills" data-fa="مهارت‌ها">Skills</a></li>
+    <li><a href="#projects" data-en="Projects" data-fa="پروژه‌ها">Projects</a></li>
+    <li><a href="#code-lib" data-en="Code" data-fa="کد">Code</a></li>
+    <li><a href="#resume" data-en="Resume" data-fa="رزومه">Resume</a></li>
+    <li><a href="#testimonials" data-en="Testimonials" data-fa="نظرات">Testimonials</a></li>
+    <li><a href="#reels" data-en="Reels" data-fa="ریلز">Reels</a></li>
+    <li><a href="#posts" data-en="Posts" data-fa="پست‌ها">Posts</a></li>
+    <li><a href="#feed" data-en="Feed" data-fa="فعالیت">Feed</a></li>
+    <li><a href="#blog" data-en="Blog" data-fa="بلاگ">Blog</a></li>
+    <li><a href="#pdfs" data-en="PDFs" data-fa="PDF">PDFs</a></li>
+    <li><a href="#eng-tools" data-en="Tools" data-fa="ابزارها">Tools</a></li>
+    <li><a href="#experience" data-en="Experience" data-fa="تجربه">Experience</a></li><li><a href="#contact" data-en="Contact" data-fa="تماس">Contact</a></li>
+    <li><a href="#booking" data-en="Book" data-fa="رزرو">Book</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="ico-btn" onclick="toggleTheme()" title="Toggle theme"><i class="fa-solid fa-sun" id="theme-icon"></i></button>
+    <button class="lang-btn" onclick="toggleLang()"><i class="fa-solid fa-globe"></i><span id="lang-lbl">فارسی</span></button>
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#hero" onclick="closeMobile()" data-en="Home" data-fa="خانه">Home</a>
+  <a href="#about" onclick="closeMobile()" data-en="About" data-fa="درباره">About</a>
+  <a href="#skills" onclick="closeMobile()" data-en="Skills" data-fa="مهارت‌ها">Skills</a>
+  <a href="#projects" onclick="closeMobile()" data-en="Projects" data-fa="پروژه‌ها">Projects</a>
+  <a href="#code-lib" onclick="closeMobile()" data-en="Code" data-fa="کد">Code</a>
+  <a href="#resume" onclick="closeMobile()" data-en="Resume" data-fa="رزومه">Resume</a>
+  <a href="#testimonials" onclick="closeMobile()" data-en="Testimonials" data-fa="نظرات">Testimonials</a>
+  <a href="#reels" onclick="closeMobile()" data-en="Reels" data-fa="ریلز">Reels</a>
+  <a href="#posts" onclick="closeMobile()" data-en="Posts" data-fa="پست‌ها">Posts</a>
+  <a href="#feed" onclick="closeMobile()" data-en="Feed" data-fa="فعالیت">Feed</a>
+  <a href="#blog" onclick="closeMobile()" data-en="Blog" data-fa="بلاگ">Blog</a>
+  <a href="#pdfs" onclick="closeMobile()" data-en="PDFs" data-fa="PDF">PDFs</a>
+  <a href="#booking" onclick="closeMobile()" data-en="Book" data-fa="رزرو">Book</a>
+  <a href="#contact" onclick="closeMobile()" data-en="Contact" data-fa="تماس">Contact</a>
+</div>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<!-- بخش اصلی بالای صفحه (معرفی) -->
+<section id="hero">
+  <div class="hero-in">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span><span id="hero-badge-text" data-en="Available for opportunities" data-fa="آماده همکاری">Available for opportunities</span></div>
+      <h1 class="hero-name">
+        <span data-en="Amir Hosin" data-fa="امیرحسین">Amir Hosin</span><br>
+        <span class="grad" data-en="Sekhavatfar" data-fa="سخاوتفر">Sekhavatfar</span>
+      </h1>
+      <div class="hero-typing-wrap"><span class="hero-typing" id="typing-el"></span></div>
+      <p class="hero-desc" data-en="Electrical Engineering student passionate about industrial automation, PLC programming, IoT systems, and embedded development. Building the future through code and circuits." data-fa="دانشجوی مهندسی برق با علاقه به اتوماسیون صنعتی، برنامه‌نویسی PLC، سیستم‌های IoT و توسعه سیستم‌های تعبیه‌شده.">
+        Electrical Engineering student passionate about industrial automation, PLC programming, IoT systems, and embedded development. Building the future through code and circuits.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-p"><i class="fa-solid fa-rocket"></i><span data-en="View Projects" data-fa="پروژه‌ها">View Projects</span></a>
+        <a href="#contact" class="btn btn-o"><i class="fa-solid fa-paper-plane"></i><span data-en="Get in Touch" data-fa="تماس">Get in Touch</span></a>
+        <a href="#" class="btn btn-o" download><i class="fa-solid fa-download"></i><span data-en="Download CV" data-fa="دانلود رزومه">Download CV</span></a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/amirhooseinsekhavatfar-cloud" target="_blank" title="GitHub" class="lnk-github"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/amirhosins" target="_blank" title="LinkedIn" class="lnk-linkedin"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://t.me/AmirHosinSekhavatfar" target="_blank" title="Telegram" class="lnk-telegram"><i class="fab fa-telegram"></i></a>
+        <a href="#" target="_blank" title="Instagram" class="lnk-instagram" style="display:none"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank" title="YouTube" class="lnk-youtube" style="display:none"><i class="fab fa-youtube"></i></a>
+        <a href="mailto:amirhooseinsekhavatfar@gmail.com" title="Email" class="lnk-email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num" data-target="15">0+</div><div class="stat-lbl" data-en="Projects" data-fa="پروژه">Projects</div></div>
+        <div><div class="stat-num" data-target="3">0+</div><div class="stat-lbl" data-en="Years" data-fa="سال">Years</div></div>
+        <div><div class="stat-num" data-target="8">0+</div><div class="stat-lbl" data-en="Tech Stacks" data-fa="فناوری">Tech Stacks</div></div>
+        <div><div class="stat-num" data-target="5">0+</div><div class="stat-lbl" data-en="Certs" data-fa="گواهی">Certs</div></div>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-ring"><div class="hero-photo-circle" id="hero-photo-circle">
+        <svg id="hero-logo-svg" width="100%" height="100%" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" style="border-radius:50%">
+          <circle cx="160" cy="160" r="156" fill="#050C18"/>
+          <circle cx="160" cy="160" r="154" fill="none" stroke="#071828" stroke-width="1"/>
+          <circle cx="160" cy="160" r="144" fill="none" stroke="#0A2040" stroke-width="0.7"/>
+          <circle cx="160" cy="160" r="131" fill="none" stroke="#0C2848" stroke-width="0.5"/>
+          <circle cx="160" cy="160" r="156" fill="none" stroke="#163860" stroke-width="1.5" stroke-dasharray="1 7" stroke-linecap="round"/>
+          <line x1="160" y1="4" x2="160" y2="18" stroke="#1E7FCC" stroke-width="1.8"/>
+          <line x1="160" y1="302" x2="160" y2="316" stroke="#1E7FCC" stroke-width="1.8"/>
+          <line x1="4" y1="160" x2="18" y2="160" stroke="#1E7FCC" stroke-width="1.8"/>
+          <line x1="302" y1="160" x2="316" y2="160" stroke="#1E7FCC" stroke-width="1.8"/>
+          <circle cx="160" cy="4" r="2.5" fill="#1E7FCC"/>
+          <circle cx="160" cy="316" r="2.5" fill="#1E7FCC"/>
+          <circle cx="4" cy="160" r="2.5" fill="#1E7FCC"/>
+          <circle cx="316" cy="160" r="2.5" fill="#1E7FCC"/>
+          <path id="h-arcT" d="M 35 160 A 125 125 0 0 1 285 160" fill="none"/>
+          <path id="h-arcB" d="M 45 175 A 125 125 0 0 0 275 175" fill="none"/>
+          <text font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="500" fill="#2A6FAA" letter-spacing="2.5"><textPath href="#h-arcT" startOffset="50%" text-anchor="middle">AMIRHOSIN  SEKHAVATFAR  ·  ENGINEER</textPath></text>
+          <text font-family="'Segoe UI',Arial,sans-serif" font-size="9.5" font-weight="500" fill="#2A6FAA" letter-spacing="2.5"><textPath href="#h-arcB" startOffset="50%" text-anchor="middle">PLC  ·  ESP32  ·  IoT  ·  AUTOMATION</textPath></text>
+          <circle cx="160" cy="160" r="106" fill="#07101E" stroke="#0F2C50" stroke-width="1.2"/>
+          <circle cx="160" cy="100" r="32" fill="#060E1C" stroke="#1A5F9E" stroke-width="1.4"/>
+          <line x1="160" y1="80" x2="160" y2="120" stroke="#1E7FCC" stroke-width="1.8"/>
+          <line x1="140" y1="100" x2="180" y2="100" stroke="#1E7FCC" stroke-width="1.8"/>
+          <circle cx="150" cy="90" r="2.5" fill="#3FA0E8"/>
+          <circle cx="170" cy="90" r="2.5" fill="#3FA0E8"/>
+          <circle cx="150" cy="110" r="2.5" fill="#3FA0E8"/>
+          <circle cx="170" cy="110" r="2.5" fill="#3FA0E8"/>
+          <circle cx="160" cy="100" r="6" fill="none" stroke="#5BB8FF" stroke-width="1.3"/>
+          <circle cx="160" cy="100" r="2" fill="#3FA0E8"/>
+          <text x="160" y="155" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-weight="800" font-size="19" fill="#D8EEFF" letter-spacing="3">AMIRHOSIN</text>
+          <line x1="90" y1="163" x2="230" y2="163" stroke="#0D2540" stroke-width="0.7"/>
+          <circle cx="90" cy="163" r="2" fill="#1E7FCC"/>
+          <circle cx="230" cy="163" r="2" fill="#1E7FCC"/>
+          <text x="160" y="179" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-weight="300" font-size="9" fill="#3A80C0" letter-spacing="6">SEKHAVATFAR</text>
+          <text x="160" y="196" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-weight="500" font-size="7.5" fill="#1B5A90" letter-spacing="2.5">AUTOMATION ENGINEER</text>
+          <rect x="117" y="208" width="26" height="13" rx="4" fill="#1A5F9E"/>
+          <text x="130" y="218.5" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="700" fill="#04090F">PLC</text>
+          <rect x="147" y="208" width="34" height="13" rx="4" fill="#134880"/>
+          <text x="164" y="218.5" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="700" fill="#04090F">ESP32</text>
+          <rect x="185" y="208" width="26" height="13" rx="4" fill="#0D3262"/>
+          <text x="198" y="218.5" text-anchor="middle" font-family="'Segoe UI',Arial,sans-serif" font-size="7" font-weight="700" fill="#04090F">IoT</text>
+          <circle cx="72" cy="160" r="4" fill="#07101E" stroke="#1A5F9E" stroke-width="1"/>
+          <circle cx="248" cy="160" r="4" fill="#07101E" stroke="#1A5F9E" stroke-width="1"/>
+          <circle cx="72" cy="160" r="1.5" fill="#1E7FCC"/>
+          <circle cx="248" cy="160" r="1.5" fill="#1E7FCC"/>
+        </svg>
+        <i class="fa-solid fa-microchip" id="hero-photo-icon" style="display:none"></i>
+        <img id="hero-photo-img" alt="Profile photo" style="display:none">
+      </div></div>
+      <div class="hero-glow"></div>
+      <div class="fc fc1"><div class="fci"><i class="fa-solid fa-industry"></i></div><span data-en="PLC / TIA Portal" data-fa="PLC / TIA Portal">PLC / TIA Portal</span></div>
+      <div class="fc fc2"><div class="fci"><i class="fab fa-python"></i></div><span data-en="Python Dev" data-fa="پایتون">Python Dev</span></div>
+      <div class="fc fc3"><div class="fci"><i class="fa-solid fa-wifi"></i></div><span data-en="IoT / ESP32" data-fa="اینترنت اشیا">IoT / ESP32</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
+<!-- درباره من -->
+<section id="about" class="sec">
+  <div class="inner">
+    <div style="margin-bottom:48px">
+      <span class="sec-label" data-en="01 — About Me" data-fa="۰۱ — درباره من">01 — About Me</span>
+      <h2 class="sec-title"><span data-en="Engineering Meets " data-fa="مهندسی و ">Engineering Meets </span><span class="grad" data-en="Innovation" data-fa="نوآوری">Innovation</span></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-bio">
+        <p data-en="I'm Amir Hosin Sekhavatfar, an Electrical Engineering student with a deep passion for industrial automation and embedded systems. My journey began with curiosity about how machines think and communicate — leading me into the world of PLCs, SCADA systems, and modern IoT architectures." data-fa="من امیرحسین سخاوتفر هستم، دانشجوی مهندسی برق با علاقه عمیق به اتوماسیون صنعتی و سیستم‌های تعبیه‌شده. سفرم با کنجکاوی درباره نحوه تفکر ماشین‌ها آغاز شد و مرا به دنیای PLC، SCADA و معماری‌های IoT مدرن کشاند.">
+          I'm Amir Hosin Sekhavatfar, an Electrical Engineering student with a deep passion for industrial automation and embedded systems. My journey began with curiosity about how machines think and communicate — leading me into the world of PLCs, SCADA systems, and modern IoT architectures.
+        </p>
+        <p data-en="Beyond the hardware, I build Python-based tools, script automation workflows, and develop ESP32-powered IoT devices. I believe the future of industry lies in the intelligent convergence of software and hardware." data-fa="فراتر از سخت‌افزار، ابزارهای پایتون می‌سازم، جریان‌های اتوماسیون را اسکریپت می‌کنم و دستگاه‌های IoT مبتنی بر ESP32 توسعه می‌دهم.">
+          Beyond the hardware, I build Python-based tools, script automation workflows, and develop ESP32-powered IoT devices. I believe the future of industry lies in the intelligent convergence of software and hardware.
+        </p>
+        <div class="about-hi">
+          <div class="hcard reveal"><div class="hci"><i class="fa-solid fa-bolt"></i></div><h4 data-en="Industrial Automation" data-fa="اتوماسیون صنعتی">Industrial Automation</h4><p data-en="PLC, SCADA, HMI" data-fa="PLC، SCADA، HMI">PLC, SCADA, HMI</p></div>
+          <div class="hcard reveal"><div class="hci"><i class="fa-solid fa-wifi"></i></div><h4 data-en="IoT Development" data-fa="توسعه IoT">IoT Development</h4><p data-en="ESP32, MQTT, sensors" data-fa="ESP32، MQTT، سنسور">ESP32, MQTT, sensors</p></div>
+          <div class="hcard reveal"><div class="hci"><i class="fab fa-python"></i></div><h4 data-en="Python Programming" data-fa="برنامه‌نویسی پایتون">Python Programming</h4><p data-en="Automation, data tools" data-fa="اتوماسیون، ابزار داده">Automation, data tools</p></div>
+          <div class="hcard reveal"><div class="hci"><i class="fa-solid fa-microchip"></i></div><h4 data-en="Embedded Systems" data-fa="سیستم‌های تعبیه‌شده">Embedded Systems</h4><p data-en="C/C++, Arduino, firmware" data-fa="C/C++، آردوینو">C/C++, Arduino, firmware</p></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-size:.92rem;font-weight:700;margin-bottom:20px;color:var(--tx2)" data-en="My Journey" data-fa="مسیر من">My Journey</h3>
+        <div class="tl" id="journey-timeline-list"></div>
+      </div>
+    </div>
+
+    <!-- GitHub Live Data -->
+    <div class="gh-section">
+      <span class="sec-label" style="margin-bottom:16px;display:block">GitHub Activity</span>
+      <div id="gh-profile-wrap">
+        <div class="gh-loading"><i class="fa-solid fa-spinner fa-spin" style="color:var(--ac2)"></i> Loading GitHub data…</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SKILLS ═══════════════════ -->
+<!-- مهارت‌ها -->
+<section id="skills" class="sec" style="background:var(--bg3)">
+  <div class="inner">
+    <div style="margin-bottom:44px">
+      <span class="sec-label" data-en="02 — Skills" data-fa="۰۲ — مهارت‌ها">02 — Skills</span>
+      <h2 class="sec-title"><span data-en="Technical " data-fa="مهارت‌های ">Technical </span><span class="grad" data-en="Expertise" data-fa="تخصصی">Expertise</span></h2>
+    </div>
+    <div class="skills-grid" id="skills-grid"></div>
+
+    <!-- Skill Radar — این نمودار وقتی حداقل ۳ مهارت توی skills.js باشه، خودکار
+         و به‌طور کامل بر اساس داده‌ی واقعی رسم می‌شه (توسط renderSkillRadar در app.js).
+         با کمتر از ۳ مهارت، نموداری نمایش داده نمی‌شه چون یه چندضلعی معنی‌دار نمی‌سازه. -->
+
+    <div class="radar-wrap" id="skill-radar-wrap"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PROJECTS ═══════════════════ -->
+<!-- پروژه‌ها -->
+<section id="projects" class="sec">
+  <div class="inner">
+    <div style="margin-bottom:44px">
+      <span class="sec-label" data-en="03 — Projects" data-fa="۰۳ — پروژه‌ها">03 — Projects</span>
+      <h2 class="sec-title"><span data-en="Featured " data-fa="پروژه‌های ">Featured </span><span class="grad" data-en="Work" data-fa="برجسته">Work</span></h2>
+    </div>
+    <div class="proj-carousel" id="proj-carousel">
+      <div class="pcar-split">
+        <div class="pcar-stage" id="pcar-stage"></div>
+        <div class="pcar-info">
+          <span class="pcar-cat" id="pcar-cat"></span>
+          <div class="ptitle" id="pcar-title"></div>
+          <div class="pdesc" id="pcar-desc"></div>
+          <div class="ptags" id="pcar-tags"></div>
+          <div class="plinks" id="pcar-links"></div>
+          <div class="pcar-nav">
+            <button class="pcar-arrow" id="pcar-prev" aria-label="Previous project"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="pcar-dots" id="pcar-dots"></div>
+            <button class="pcar-arrow" id="pcar-next" aria-label="Next project"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CODE LIBRARY ═══════════════════ -->
+<!-- کتابخانه کدها -->
+<section id="code-lib" class="sec" style="background:var(--bg3)">
+  <div class="inner">
+    <div style="margin-bottom:40px">
+      <span class="sec-label" data-en="04 — Code Library" data-fa="۰۴ — کتابخانه کد">04 — Code Library</span>
+      <h2 class="sec-title"><span data-en="Ready-to-Use " data-fa="قطعه‌های ">Ready-to-Use </span><span class="grad" data-en="Snippets" data-fa="کد آماده">Snippets</span></h2>
+    </div>
+    <div class="code-grid" id="code-grid">
+      <div class="cc"><div class="cc-head"><div class="dots-row"><span></span><span></span><span></span></div><div class="cc-lang">PYTHON</div><button class="cc-copy" onclick="copyCode(this)"><i class="fa-regular fa-copy"></i></button></div><pre class="cc-pre"><span class="cm"># Modbus TCP reader</span>
+<span class="kw">from</span> pymodbus.client <span class="kw">import</span> ModbusTcpClient
+
+<span class="kw">def</span> <span class="fn">read_regs</span>(host, addr, n):
+    c = ModbusTcpClient(host)
+    c.connect()
+    r = c.read_holding_registers(
+        addr, n, unit=<span class="num">1</span>)
+    c.close()
+    <span class="kw">return</span> r.registers
+
+data = read_regs(
+    <span class="str">"192.168.1.5"</span>, <span class="num">0</span>, <span class="num">10</span>)
+<span class="fn">print</span>(<span class="str">f"Regs: {data}"</span>)</pre><div class="cc-foot"><div class="cc-title" data-en="Modbus TCP Reader" data-fa="خواننده Modbus TCP">Modbus TCP Reader</div><div class="cc-desc" data-en="Read holding registers from any Modbus device" data-fa="خواندن رجیسترها از Modbus">Read holding registers from any Modbus device</div></div></div>
+      <div class="cc"><div class="cc-head"><div class="dots-row"><span></span><span></span><span></span></div><div class="cc-lang">C++ / ESP32</div><button class="cc-copy" onclick="copyCode(this)"><i class="fa-regular fa-copy"></i></button></div><pre class="cc-pre"><span class="cm">// ESP32 MQTT Publisher</span>
+<span class="kw">#include</span> <span class="str">&lt;WiFi.h&gt;</span>
+<span class="kw">#include</span> <span class="str">&lt;PubSubClient.h&gt;</span>
+
+WiFiClient espClient;
+PubSubClient mqtt(espClient);
+
+<span class="kw">void</span> <span class="fn">publish</span>(<span class="kw">float</span> temp) {
+  String p = <span class="str">"{\"temp\":"</span>
+           + String(temp) + <span class="str">"}"</span>;
+  mqtt.publish(
+    <span class="str">"sensor/data"</span>, p.c_str());
+}</pre><div class="cc-foot"><div class="cc-title" data-en="ESP32 MQTT Publisher" data-fa="ناشر MQTT ESP32">ESP32 MQTT Publisher</div><div class="cc-desc" data-en="Publish sensor JSON to MQTT broker" data-fa="ارسال JSON سنسور به MQTT">Publish sensor JSON to MQTT broker</div></div></div>
+      <div class="cc"><div class="cc-head"><div class="dots-row"><span></span><span></span><span></span></div><div class="cc-lang">PYTHON</div><button class="cc-copy" onclick="copyCode(this)"><i class="fa-regular fa-copy"></i></button></div><pre class="cc-pre"><span class="cm"># OPC-UA value reader</span>
+<span class="kw">from</span> opcua <span class="kw">import</span> Client
+
+<span class="kw">def</span> <span class="fn">read_opc</span>(url, node_id):
+    c = Client(url)
+    <span class="kw">try</span>:
+        c.connect()
+        node = c.get_node(node_id)
+        <span class="kw">return</span> node.get_value()
+    <span class="kw">finally</span>:
+        c.disconnect()
+
+v = read_opc(
+  <span class="str">"opc.tcp://localhost:4840"</span>,
+  <span class="str">"ns=2;i=1"</span>)
+<span class="fn">print</span>(<span class="str">f"Value: {v}"</span>)</pre><div class="cc-foot"><div class="cc-title" data-en="OPC-UA Reader" data-fa="خواننده OPC-UA">OPC-UA Reader</div><div class="cc-desc" data-en="Read node values from OPC-UA server" data-fa="خواندن مقادیر از OPC-UA">Read node values from OPC-UA server</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ RESUME ═══════════════════ -->
+<!-- رزومه -->
+<section id="resume" class="sec">
+  <div class="inner">
+    <div style="margin-bottom:40px">
+      <span class="sec-label" data-en="05 — Resume" data-fa="۰۵ — رزومه">05 — Resume</span>
+      <h2 class="sec-title"><span data-en="Education & " data-fa="تحصیلات و ">Education & </span><span class="grad" data-en="Experience" data-fa="تجربه">Experience</span></h2>
+      <a href="#" id="cv-download-btn" class="btn btn-p" style="margin-top:18px" download><i class="fa-solid fa-download"></i><span data-en="Download Full CV" data-fa="دانلود رزومه کامل">Download Full CV</span></a>
+    </div>
+    <div class="resume-grid">
+      <div class="res-col">
+        <h3><i class="fa-solid fa-graduation-cap"></i><span data-en="Education" data-fa="تحصیلات">Education</span></h3>
+        <div class="tl" id="resume-education-list"></div>
+      </div>
+      <div class="res-col">
+        <h3><i class="fa-solid fa-briefcase"></i><span data-en="Experience" data-fa="تجربه">Experience</span></h3>
+        <div class="tl" id="resume-experience-list"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ACHIEVEMENTS / BADGES ═══════════════════ -->
+<!-- افتخارات و مدال‌ها -->
+<section id="achievements" class="sec" style="background:var(--bg3)">
+  <div class="inner">
+    <div style="margin-bottom:40px">
+      <span class="sec-label" data-en="★ — Achievements" data-fa="★ — نشان‌های افتخار">★ — Achievements</span>
+      <h2 class="sec-title"><span data-en="Badges & " data-fa="نشان‌ها و ">Badges & </span><span class="grad" data-en="Milestones" data-fa="دستاوردها">Milestones</span></h2>
+      <p class="sec-sub" data-en="Skill badges and milestones unlocked along the way." data-fa="نشان‌های مهارتی و دستاوردهایی که در طول مسیر کسب شده‌اند.">Skill badges and milestones unlocked along the way.</p>
+    </div>
+    <div class="ach-grid" id="ach-grid">
+    <div class="ach-card locked" style="--ach-c:#FF7A1A">
+      <i class="fa-solid fa-lock ach-lock-ico"></i>
+      <div class="ach-icon"><i class="fa-solid fa-microchip"></i></div>
+      <div class="ach-name" data-en="PLC Master" data-fa="استاد PLC">PLC Master</div>
+      <div class="ach-desc" data-en="Built 5+ production-grade PLC programs" data-fa="بیش از ۵ برنامه PLC صنعتی ساخته شده">Built 5+ production-grade PLC programs</div>
+      <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:90%"></div></div>
+      <span class="ach-pct">90%</span>
+    </div>
+    <div class="ach-card locked" style="--ach-c:#35C7C2">
+      <i class="fa-solid fa-lock ach-lock-ico"></i>
+      <div class="ach-icon"><i class="fa-solid fa-wifi"></i></div>
+      <div class="ach-name" data-en="IoT Builder" data-fa="سازنده IoT">IoT Builder</div>
+      <div class="ach-desc" data-en="Shipped multiple ESP32-based IoT devices" data-fa="چندین دستگاه IoT مبتنی بر ESP32 ساخته شده">Shipped multiple ESP32-based IoT devices</div>
+      <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:85%"></div></div>
+      <span class="ach-pct">85%</span>
+    </div>
+    <div class="ach-card locked" style="--ach-c:#7FE8A4">
+      <i class="fa-solid fa-lock ach-lock-ico"></i>
+      <div class="ach-icon"><i class="fab fa-python"></i></div>
+      <div class="ach-name" data-en="Python Automator" data-fa="اتوماسیون با پایتون">Python Automator</div>
+      <div class="ach-desc" data-en="Automated industrial workflows with Python" data-fa="اتوماسیون فرآیندهای صنعتی با پایتون">Automated industrial workflows with Python</div>
+      <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:80%"></div></div>
+      <span class="ach-pct">80%</span>
+    </div>
+    <div class="ach-card locked" style="--ach-c:#FFC857">
+      <i class="fa-solid fa-lock ach-lock-ico"></i>
+      <div class="ach-icon"><i class="fab fa-github"></i></div>
+      <div class="ach-name" data-en="Open Source" data-fa="متن‌باز">Open Source</div>
+      <div class="ach-desc" data-en="Active GitHub contributor & repo maintainer" data-fa="مشارکت‌کننده فعال در گیت‌هاب">Active GitHub contributor & repo maintainer</div>
+      <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:70%"></div></div>
+      <span class="ach-pct">70%</span>
+    </div>
+    <div class="ach-card" style="--ach-c:#22C55E">
+      <div class="ach-icon"><i class="fa-solid fa-certificate"></i></div>
+      <div class="ach-name" data-en="Certified Engineer" data-fa="مهندس گواهی‌دار">Certified Engineer</div>
+      <div class="ach-desc" data-en="Siemens TIA Portal certification holder" data-fa="دارای گواهینامه Siemens TIA Portal">Siemens TIA Portal certification holder</div>
+      <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:100%"></div></div>
+      <span class="ach-pct">100%</span>
+    </div>
+    <div class="ach-card locked" style="--ach-c:#F59E0B">
+      <i class="fa-solid fa-lock ach-lock-ico"></i>
+      <div class="ach-icon"><i class="fa-solid fa-robot"></i></div>
+      <div class="ach-name" data-en="Embedded Dev" data-fa="توسعه‌دهنده Embedded">Embedded Dev</div>
+      <div class="ach-desc" data-en="Designed autonomous robotics firmware" data-fa="طراحی فریمور رباتیک خودمختار">Designed autonomous robotics firmware</div>
+      <div class="ach-bar-bg"><div class="ach-bar-fill" style="width:55%"></div></div>
+      <span class="ach-pct">55%</span>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+<!-- نظرات و توصیه‌نامه‌ها -->
+<section id="testimonials" class="sec">
+  <div class="inner">
+    <div style="margin-bottom:40px">
+      <span class="sec-label" data-en="★ — Testimonials" data-fa="★ — نظرات">★ — Testimonials</span>
+      <h2 class="sec-title"><span data-en="What People " data-fa="نظر همکاران و ">What People </span><span class="grad" data-en="Say" data-fa="کارفرماها">Say</span></h2>
+      <p class="sec-sub" data-en="Feedback from colleagues and clients I've worked with." data-fa="بازخورد همکاران و کارفرماهایی که با آن‌ها همکاری داشته‌ام.">Feedback from colleagues and clients I've worked with.</p>
+    </div>
+    <div class="testi-grid" id="testi-grid"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ REELS ═══════════════════ -->
+<!-- ریلز (ویدیوهای کوتاه) -->
+<section id="reels">
+  <div class="inner">
+    <div style="margin-bottom:32px;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div>
+        <span class="sec-label" data-en="06 — Videos" data-fa="۰۶ — ویدیوها">06 — ویدیوها</span>
+        <h2 class="sec-title"><span data-en="Engineering " data-fa="ویدیوهای ">ویدیوهای </span><span class="grad" data-en="Videos" data-fa="مهندسی">مهندسی</span></h2>
+        <p class="sec-sub" style="margin-top:8px" data-en="Engineering video content — demos, walkthroughs, and technical tutorials." data-fa="ویدیوهای مهندسی — دموها، آموزش‌ها و تیوتوریال‌های فنی.">دموها، آموزش‌ها و تیوتوریال‌های فنی.</p>
+      </div>
+      <div class="reels-video-tabs" id="rvtabs" style="margin-bottom:4px"></div>
+    </div>
+    <div class="video-toolbar">
+      <div class="video-search-wrap">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="video-search-input" class="video-search-input" oninput="onVideoSearchInput(this.value)">
+      </div>
+      <select id="video-sort-select" class="video-sort-select" onchange="onVideoSortChange(this.value)">
+        <option value="newest">Newest</option>
+        <option value="views">Most viewed</option>
+        <option value="likes">Most liked</option>
+      </select>
+      <select id="video-duration-select" class="video-sort-select" onchange="onVideoDurationChange(this.value)">
+        <option value="all">All lengths</option>
+        <option value="short">Short (&lt;5 min)</option>
+        <option value="medium">Medium (5-20 min)</option>
+        <option value="long">Long (20+ min)</option>
+      </select>
+    </div>
+    <div id="reels-videos">
+      <div id="recently-watched-row" class="recently-watched-row" style="display:none"></div>
+      <div id="video-watch-stats" class="video-watch-stats" style="display:none"></div>
+      <div class="videos-grid" id="videos-grid"></div>
+      <div style="text-align:center;margin-top:24px">
+        <button id="video-load-more-btn" class="video-load-more-btn" onclick="loadMoreVideos()" style="display:none">Load more</button>
+      </div>
+    </div><!-- end reels-video-section -->
+
+  </div>
+</section>
+
+<!-- FULLSCREEN REEL OVERLAY -->
+<div class="fullscreen-overlay" id="fullscreen-overlay" onclick="closeReelIfOutside(event)">
+
+  <!-- ① VIDEO PLAYER MODAL (landscape — YouTube / Aparat / MP4) -->
+  <div class="fs-video-modal" id="fs-video-modal">
+    <div class="fs-vm-top">
+      <button class="fs-vm-close" onclick="closeReel()"><i class="fa-solid fa-xmark"></i></button>
+      <div id="fs-vm-media-wrap"></div>
+    </div>
+    <div class="fs-vm-info">
+      <div class="fs-vm-title" id="fs-vm-title"></div>
+      <div class="fs-vm-meta">
+        <span id="fs-vm-views"></span>
+        <span>·</span>
+        <span id="fs-vm-date"></span>
+      </div>
+      <div class="fs-vm-tags" id="fs-vm-tags"></div>
+      <div class="fs-vm-actions">
+        <button class="fs-vm-btn" id="fs-vm-like-btn" onclick="toggleFsLike()"><i class="fa-regular fa-heart"></i><span id="fs-like-count">0</span></button>
+        <button class="fs-vm-btn" id="fs-vm-save-btn" onclick="toggleFsSave()"><i class="fa-regular fa-bookmark"></i><span>Save</span></button>
+        <button class="fs-vm-btn" onclick=""><i class="fa-solid fa-share-nodes"></i><span>Share</span></button>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<!-- پنجره‌ی تمام‌صفحه برای باز کردن فایل‌های HTML بخش «ابزارهای مهندسی» -->
+<div class="tool-fullscreen-modal" id="tool-fullscreen-modal">
+  <div class="tool-fs-top">
+    <div class="tool-fs-title" id="tool-fs-title"></div>
+    <button class="tool-fs-close" onclick="closeEngTool()">
+      <i class="fa-solid fa-xmark"></i>
+      <span data-en="Close" data-fa="بستن">Close</span>
+    </button>
+  </div>
+  <iframe id="tool-fs-iframe" class="tool-fs-iframe" src="about:blank" title="Engineering Tool"></iframe>
+</div>
+
+<!-- ═══════════════════ POSTS ═══════════════════ -->
+<!-- پست‌ها -->
+<section id="posts">
+  <div class="inner">
+    <div style="margin-bottom:36px;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:18px">
+      <div>
+        <span class="sec-label" data-en="07 — Social Feed" data-fa="۰۷ — فید اجتماعی">07 — Social Feed</span>
+        <h2 class="sec-title"><span data-en="Engineering " data-fa="فید ">Engineering </span><span class="grad" data-en="Posts" data-fa="مهندسی">Posts</span></h2>
+        <p class="sec-sub" style="margin-top:8px" data-en="Project updates, technical insights, announcements and engineering thoughts." data-fa="به‌روزرسانی پروژه‌ها، بینش‌های فنی و اعلان‌ها.">Project updates, technical insights, announcements and engineering thoughts.</p>
+      </div>
+      <button onclick="openSimLink()" style="display:inline-flex;align-items:center;gap:9px;padding:12px 20px;border-radius:12px;background:linear-gradient(135deg,rgba(179,71,0,.25),rgba(255,122,26,.2));border:1px solid rgba(179,71,0,.45);color:#c084fc;font-family:var(--fn);font-size:.85rem;font-weight:700;cursor:pointer;transition:all .3s;flex-shrink:0;margin-top:6px" onmouseover="this.style.background='linear-gradient(135deg,rgba(179,71,0,.45),rgba(255,122,26,.35))'" onmouseout="this.style.background='linear-gradient(135deg,rgba(179,71,0,.25),rgba(255,122,26,.2))'">
+        <i class="fa-solid fa-diagram-project" style="font-size:1rem"></i>
+        <span>لیست سیمولینک پروژه‌ها</span>
+        <span id="simlink-count-badge" style="background:rgba(179,71,0,.35);border-radius:99px;padding:2px 9px;font-size:.68rem;font-family:var(--mo);color:#e9d5ff">0</span>
+      </button>
+    </div>
+    <div class="posts-layout">
+      <!-- Sidebar -->
+      <aside class="posts-sidebar">
+        <div class="posts-profile-card">
+          <div class="pp-avatar"><i class="fa-solid fa-microchip"></i></div>
+          <div class="pp-name" id="pp-name-el">Amir Hosin Sekhavatfar</div>
+          <div class="pp-handle" id="pp-handle-el">@AmirHosinS</div>
+          <div class="pp-bio" id="pp-bio-el">Electrical Engineer · PLC & IoT Developer · Building intelligent automation systems.</div>
+          <div class="pp-stats">
+            <div class="pp-stat"><div class="pp-stat-n" id="pp-stat-posts-el">48</div><div class="pp-stat-l">Posts</div></div>
+            <div class="pp-stat"><div class="pp-stat-n" id="pp-stat-followers-el">1.2K</div><div class="pp-stat-l">Followers</div></div>
+            <div class="pp-stat"><div class="pp-stat-n" id="pp-stat-following-el">312</div><div class="pp-stat-l">Following</div></div>
+          </div>
+        </div>
+        <div class="posts-filter-card">
+          <h4>Filter by Type</h4>
+          <div class="post-filter-list" id="post-filter-list"></div>
+        </div>
+      </aside>
+
+      <!-- Feed -->
+      <!-- فید (پست‌های شبکه اجتماعی‌طور) -->
+      <div class="posts-feed" id="posts-feed">
+
+        <!-- Announcement Banner -->
+        <div class="announcement-banner" data-post-type="announcement">
+          <div class="ann-icon"><i class="fa-solid fa-bullhorn"></i></div>
+          <div class="ann-text">
+            <h4 id="ann-banner-title-el">🎉 Available for New Projects — 2025</h4>
+            <p id="ann-banner-text-el">I'm now open for freelance automation, IoT development, and embedded systems consulting. DM me to discuss your project.</p>
+          </div>
+        </div>
+
+        <div class="posts-feed-list" id="posts-feed-list"></div>
+
+        <div class="posts-load-more">
+          <button class="btn btn-o" onclick="loadMorePosts(this)"><i class="fa-solid fa-rotate"></i> <span>Load More Posts</span></button>
+        </div>
+
+      </div><!-- end posts-feed -->
+    </div><!-- end posts-layout -->
+  </div>
+</section>
+
+<!-- ═══════════════════ FEED ═══════════════════ -->
+<!-- فید (پست‌های شبکه اجتماعی‌طور) -->
+<section id="feed" class="sec" style="background:var(--bg3)">
+  <div class="inner">
+    <div style="margin-bottom:40px">
+      <span class="sec-label" data-en="08 — Activity Feed" data-fa="۰۸ — فعالیت‌ها">08 — Activity Feed</span>
+      <h2 class="sec-title"><span class="grad" data-en="Latest Activity" data-fa="آخرین فعالیت‌ها">Latest Activity</span></h2>
+    </div>
+    <div class="feed-list" id="activity-feed-list"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ BLOG ═══════════════════ -->
+<!-- وبلاگ -->
+<section id="blog" class="sec">
+  <div class="inner">
+    <div style="margin-bottom:40px">
+      <span class="sec-label" data-en="07 — Blog & News" data-fa="۰۷ — بلاگ و اخبار">07 — Blog & News</span>
+      <h2 class="sec-title"><span data-en="Latest " data-fa="آخرین ">Latest </span><span class="grad" data-en="Posts" data-fa="مقالات">Posts</span></h2>
+    </div>
+    <div class="blog-grid" id="blog-grid"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PDF LIBRARY ═══════════════════ -->
+<!-- کتابخانه فایل‌های PDF -->
+<section id="pdfs" class="sec" style="background:var(--bg3)">
+  <div class="inner">
+    <div style="margin-bottom:40px">
+      <span class="sec-label" data-en="08 — PDF Library" data-fa="۰۸ — کتابخانه PDF">08 — PDF Library</span>
+      <h2 class="sec-title"><span data-en="Technical " data-fa="اسناد ">Technical </span><span class="grad" data-en="Documents" data-fa="فنی">Documents</span></h2>
+    </div>
+    <div class="pdf-grid" id="pdf-grid">
+      <div class="pdf-card"><div class="pdf-icon-wrap"><i class="fa-solid fa-file-pdf"></i></div><div class="pdf-title" data-en="Siemens S7-1200 System Manual" data-fa="راهنمای سیستم S7-1200 زیمنس">Siemens S7-1200 System Manual</div><div class="pdf-desc" data-en="Complete technical reference for the Siemens S7-1200 PLC — hardware, wiring, and programming guide." data-fa="مرجع فنی کامل PLC S7-1200 زیمنس.">Complete technical reference for the Siemens S7-1200 PLC — hardware, wiring, and programming guide.</div><div class="pdf-meta" data-en="PDF · 8.2 MB · Siemens" data-fa="PDF · ۸.۲ مگابایت">PDF · 8.2 MB · Siemens</div><div class="pdf-actions"><a href="#" class="btn btn-o" style="padding:7px 13px;font-size:.74rem"><i class="fa-solid fa-eye"></i> <span data-en="Preview" data-fa="پیش‌نمایش">Preview</span></a><a href="#" class="btn btn-p" style="padding:7px 13px;font-size:.74rem" download><i class="fa-solid fa-download"></i> <span data-en="Download" data-fa="دانلود">Download</span></a></div></div>
+      <div class="pdf-card"><div class="pdf-icon-wrap"><i class="fa-solid fa-file-pdf"></i></div><div class="pdf-title" data-en="ESP32 Technical Reference Manual" data-fa="راهنمای فنی ESP32">ESP32 Technical Reference Manual</div><div class="pdf-desc" data-en="Espressif's official ESP32 technical reference including memory, peripherals, and programming model." data-fa="مرجع فنی رسمی ESP32 از Espressif شامل حافظه و پریفرال‌ها.">Espressif's official ESP32 technical reference including memory, peripherals, and programming model.</div><div class="pdf-meta" data-en="PDF · 5.6 MB · Espressif" data-fa="PDF · ۵.۶ مگابایت">PDF · 5.6 MB · Espressif</div><div class="pdf-actions"><a href="#" class="btn btn-o" style="padding:7px 13px;font-size:.74rem"><i class="fa-solid fa-eye"></i> <span data-en="Preview" data-fa="پیش‌نمایش">Preview</span></a><a href="#" class="btn btn-p" style="padding:7px 13px;font-size:.74rem" download><i class="fa-solid fa-download"></i> <span data-en="Download" data-fa="دانلود">Download</span></a></div></div>
+      <div class="pdf-card"><div class="pdf-icon-wrap"><i class="fa-solid fa-file-pdf"></i></div><div class="pdf-title" data-en="Modbus Application Protocol v1.1b3" data-fa="پروتکل Modbus نسخه ۱.۱b3">Modbus Application Protocol v1.1b3</div><div class="pdf-desc" data-en="Official Modbus protocol specification document covering function codes, data model, and implementation." data-fa="سند مشخصات پروتکل Modbus شامل کدهای تابع و مدل داده.">Official Modbus protocol specification document covering function codes, data model, and implementation.</div><div class="pdf-meta" data-en="PDF · 1.1 MB · Modbus.org" data-fa="PDF · ۱.۱ مگابایت">PDF · 1.1 MB · Modbus.org</div><div class="pdf-actions"><a href="#" class="btn btn-o" style="padding:7px 13px;font-size:.74rem"><i class="fa-solid fa-eye"></i> <span data-en="Preview" data-fa="پیش‌نمایش">Preview</span></a><a href="#" class="btn btn-p" style="padding:7px 13px;font-size:.74rem" download><i class="fa-solid fa-download"></i> <span data-en="Download" data-fa="دانلود">Download</span></a></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ ENGINEERING TOOLS ═══════════════════ -->
+<!-- ابزارهای مهندسی -->
+<section id="eng-tools" class="sec">
+  <div class="inner">
+    <div style="margin-bottom:40px">
+      <span class="sec-label" data-en="09 — Engineering Tools" data-fa="۰۹ — ابزارهای مهندسی">09 — Engineering Tools</span>
+      <h2 class="sec-title"><span data-en="Interactive " data-fa="شبیه‌سازها و ">Interactive </span><span class="grad" data-en="Simulators" data-fa="ابزارها">Simulators</span></h2>
+      <p class="sec-sub" style="margin-top:8px" data-en="Browser-based PLC simulators and engineering tools I've built — open any of them right here, full screen, no download needed." data-fa="شبیه‌سازها و ابزارهای مهندسیِ تحت وب که خودم ساختم — همین‌جا و به‌صورت تمام‌صفحه، بدون نیاز به دانلود.">Browser-based PLC simulators and engineering tools I've built — open any of them right here, full screen, no download needed.</p>
+    </div>
+    <div class="tool-grid" id="tool-grid">
+      <div class="tool-card">
+        <div class="tool-icon-wrap"><i class="fa-solid fa-diagram-project"></i></div>
+        <div class="tool-title" data-en="PLC Simulator" data-fa="شبیه‌ساز PLC">PLC Simulator</div>
+        <div class="tool-desc" data-en="An interactive, browser-based PLC simulation tool." data-fa="یک ابزار شبیه‌سازی تعاملیِ PLC که تحت مرورگر اجرا می‌شه.">An interactive, browser-based PLC simulation tool.</div>
+        <div class="tool-meta" data-en="HTML · Runs locally in your browser" data-fa="HTML · اجرا به‌صورت محلی داخل مرورگر">HTML · Runs locally in your browser</div>
+        <button class="btn btn-p tool-open-btn" onclick="openEngTool('tools/plc-simulator.html', this)">
+          <i class="fa-solid fa-expand"></i>
+          <span data-en="Open Tool" data-fa="باز کردن ابزار">Open Tool</span>
+        </button>
+      </div>
+      <!-- ابزار جدید؟ فقط یه .tool-card دیگه مثل بالا اضافه کن و مسیر فایلش رو توی openEngTool بذار -->
+    </div>
+  </div>
+</section>
+
+<!-- بخش تجربه تعاملی -->
+<section id="experience" class="sec" style="background:var(--bg3)">
+  <div class="inner">
+    <div style="margin-bottom:44px">
+      <span class="sec-label" data-en="EX — Experience" data-fa="تجربه — حرفه‌ای">EX — Experience</span>
+      <h2 class="sec-title"><span data-en="Skills &amp; " data-fa="مهارت‌ها و ">Skills &amp; </span><span class="grad" data-en="Experience" data-fa="تجربه">Experience</span></h2>
+      <p class="sec-sub" style="margin-top:8px" data-en="My technical background across industrial automation, IoT, and embedded systems." data-fa="پیشینه فنی من در اتوماسیون صنعتی، IoT و سیستم‌های تعبیه‌شده.">My technical background across industrial automation, IoT, and embedded systems.</p>
+    </div>
+    <div class="exp-tabs">
+      <button class="exp-tab active" onclick="switchExpTab('tools',this)" data-en="Tools & Tech" data-fa="ابزار و فناوری">Tools &amp; Tech</button>
+      <button class="exp-tab" onclick="switchExpTab('timeline',this)" data-en="Timeline" data-fa="تایم‌لاین">Timeline</button>
+      <button class="exp-tab" onclick="switchExpTab('certs',this)" data-en="Certifications" data-fa="گواهی‌نامه‌ها">Certifications</button>
+    </div>
+
+    <!-- Panel 1: Tools -->
+    <div id="exp-tools" class="exp-panel active">
+      <div class="exp-grid" id="exp-tools-grid"></div>
+    </div>
+
+    <!-- Panel 2: Timeline -->
+    <div id="exp-timeline" class="exp-panel">
+      <div class="exp-timeline" id="exp-timeline-list"></div>
+    </div>
+
+    <!-- Panel 3: Certs -->
+    <div id="exp-certs" class="exp-panel">
+      <div class="exp-grid" id="exp-certs-grid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<!-- تماس با من -->
+<section id="contact" class="sec">
+  <div class="inner">
+    <div style="margin-bottom:44px">
+      <span class="sec-label" data-en="09 — Contact" data-fa="۰۹ — تماس">09 — Contact</span>
+      <h2 class="sec-title"><span data-en="Get In " data-fa="با من ">Get In </span><span class="grad" data-en="Touch" data-fa="در تماس باشید">Touch</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3 data-en="Let's work together" data-fa="بیایید با هم کار کنیم">Let's work together</h3>
+        <p data-en="Have a project in mind or want to discuss automation, IoT, or embedded systems? I'm always open to new opportunities and collaborations." data-fa="پروژه‌ای در ذهن دارید یا می‌خواهید درباره اتوماسیون، IoT یا سیستم‌های تعبیه‌شده صحبت کنیم؟">Have a project in mind or want to discuss automation, IoT, or embedded systems? I'm always open to new opportunities and collaborations.</p>
+        <!-- From Uiverse.io by MijailVillegas — تطبیق داده‌شده با آیکون‌های واقعی سایت (Location / LinkedIn / Email / GitHub / Telegram) -->
+        <div class="social-orbit-card">
+          <ul class="social-orbit-list">
+            <li class="social-orbit-item">
+              <span class="social-orbit-ring"></span>
+              <span class="social-orbit-ring"></span>
+              <span class="social-orbit-ring"></span>
+              <a href="#location">
+                <span class="social-orbit-icon"><i class="fa-solid fa-location-dot"></i></span>
+              </a>
+              <div class="social-orbit-tooltip" data-en="Location" data-fa="موقعیت">Location</div>
+            </li>
+            <li class="social-orbit-item">
+              <span class="social-orbit-ring"></span>
+              <span class="social-orbit-ring"></span>
+              <span class="social-orbit-ring"></span>
+              <a href="https://linkedin.com/in/amirhosins" target="_blank" rel="noopener">
+                <span class="social-orbit-icon"><i class="fab fa-linkedin-in"></i></span>
+              </a>
+              <div class="social-orbit-tooltip" data-en="LinkedIn" data-fa="لینکدین">LinkedIn</div>
+            </li>
+            <li class="social-orbit-item">
+              <span class="social-orbit-ring"></span>
+              <span class="social-orbit-ring"></span>
+              <span class="social-orbit-ring"></span>
+              <a href="mailto:amirhooseinsekhavatfar@gmail.com">
+                <span class="social-orbit-icon"><i class="fa-solid fa-envelope"></i></span>
+              </a>
+              <div class="social-orbit-tooltip" data-en="Email" data-fa="ایمیل">Email</div>
+            </li>
+            <li class="social-orbit-item">
+              <span class="social-orbit-ring"></span>
+              <span class="social-orbit-ring"></span>
+              <span class="social-orbit-ring"></span>
+              <a href="https://github.com/amirhooseinsekhavatfar-cloud" target="_blank" rel="noopener">
+                <span class="social-orbit-icon"><i class="fab fa-github"></i></span>
+              </a>
+              <div class="social-orbit-tooltip" data-en="GitHub" data-fa="گیت‌هاب">GitHub</div>
+            </li>
+            <li class="social-orbit-item">
+              <span class="social-orbit-ring"></span>
+              <span class="social-orbit-ring"></span>
+              <span class="social-orbit-ring"></span>
+              <a href="https://t.me/AmirHosinSekhavatfar" target="_blank" rel="noopener">
+                <span class="social-orbit-icon"><i class="fab fa-telegram"></i></span>
+              </a>
+              <div class="social-orbit-tooltip" data-en="Telegram" data-fa="تلگرام">Telegram</div>
+            </li>
+          </ul>
+        </div>
+        <div class="qr-contact-card" id="qr-contact-wrap">
+          <img src="" alt="QR Contact Card">
+          <div>
+            <div class="qcc-title" data-en="Scan to Save Contact" data-fa="اسکن برای ذخیره اطلاعات تماس">Scan to Save Contact</div>
+            <div class="qcc-sub" data-en="Point your phone camera at the QR code, or download the vCard file directly." data-fa="دوربین گوشی را روی QR بگیرید یا فایل vCard را مستقیم دانلود کنید.">Point your phone camera at the QR code, or download the vCard file directly.</div>
+            <button type="button" class="btn btn-o" style="padding:7px 14px;font-size:.74rem" onclick="downloadVCard()"><i class="fa-solid fa-address-card"></i> <span data-en="Download vCard" data-fa="دانلود vCard">Download vCard</span></button>
+          </div>
+        </div>
+      </div>
+      <form class="cf" onsubmit="submitForm(event)">
+        <div class="frow">
+          <div class="fg"><label data-en="Full Name" data-fa="نام کامل">Full Name</label><input type="text" placeholder="John Doe" required></div>
+          <div class="fg"><label data-en="Email Address" data-fa="آدرس ایمیل">Email Address</label><input type="email" placeholder="john@example.com" required></div>
+        </div>
+        <div class="fg"><label data-en="Subject" data-fa="موضوع">Subject</label><input type="text" placeholder="Project Collaboration"></div>
+        <div class="fg"><label data-en="Message" data-fa="پیام">Message</label><textarea rows="5" placeholder="Tell me about your project..." required></textarea></div>
+        <button type="submit" class="btn btn-p" style="width:100%;justify-content:center"><i class="fa-solid fa-paper-plane"></i><span data-en="Send Message" data-fa="ارسال پیام">Send Message</span></button>
+      <div class="form-success"><i class="fa-solid fa-envelope-circle-check"></i><h4 data-en="Email client opened!" data-fa="ایمیل باز شد!">Email client opened!</h4><p data-en="Complete sending in your email app." data-fa="ارسال را در برنامه ایمیل تکمیل کنید.">Complete sending in your email app.</p></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ LOCATION MAP ═══════════════════ -->
+<!-- نقشه موقعیت مکانی -->
+<section id="location" class="sec">
+  <div class="inner">
+    <div style="margin-bottom:44px">
+      <span class="sec-label" data-en="10 — Location" data-fa="۱۰ — موقعیت">10 — Location</span>
+      <h2 class="sec-title"><span data-en="Where I " data-fa="کجا ">Where I </span><span class="grad" data-en="Am" data-fa="هستم">Am</span></h2>
+      <p class="sec-sub" data-en="Based in Iran, working with clients and teams across time zones." data-fa="مستقر در ایران، همکاری با کارفرمایان و تیم‌ها در مناطق زمانی مختلف.">Based in Iran, working with clients and teams across time zones.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-map-card" id="loc-map-card" onclick="toggleLocationMap()">
+        <iframe class="loc-map-iframe" id="loc-map-iframe" title="Yasuj, Iran map" loading="lazy"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=51.5480%2C30.6432%2C51.6280%2C30.6932&amp;marker=30.6682%2C51.5880&amp;layer=mapnik"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="loc-map-glow"></div>
+        <div class="loc-map-ping">
+          <span class="loc-ping-ring"></span>
+          <span class="loc-ping-dot"></span>
+        </div>
+        <div class="loc-map-info">
+          <div class="loc-map-name" id="loc-name-val" data-en="Location Name" data-fa="نام موقعیت مکانی">Location Name</div>
+          <div class="loc-map-coords" id="loc-coords-val">0.0000° N, 0.0000° E</div>
+        </div>
+        <div class="loc-map-expand-hint"><i class="fa-solid fa-expand"></i> <span data-en="Click to expand" data-fa="برای بزرگ‌نمایی کلیک کنید">Click to expand</span></div>
+      </div>
+
+      <div class="loc-info-panel">
+        <div class="hero-badge" id="loc-avail-badge"><span class="dot"></span><span data-en="Available for opportunities" data-fa="آماده همکاری">Available for opportunities</span></div>
+
+        <div class="loc-info-row">
+          <div class="loc-info-ic"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="loc-info-lbl" data-en="City" data-fa="شهر">City</div>
+            <div class="loc-info-val" id="loc-city-val">—</div>
+          </div>
+        </div>
+        <div class="loc-info-row">
+          <div class="loc-info-ic"><i class="fa-solid fa-earth-asia"></i></div>
+          <div>
+            <div class="loc-info-lbl" data-en="Country" data-fa="کشور">Country</div>
+            <div class="loc-info-val" id="loc-country-val">—</div>
+          </div>
+        </div>
+        <div class="loc-info-row">
+          <div class="loc-info-ic"><i class="fa-solid fa-clock"></i></div>
+          <div>
+            <div class="loc-info-lbl" data-en="Local Time" data-fa="ساعت محلی">Local Time</div>
+            <div class="loc-info-val" id="loc-time-val">—</div>
+          </div>
+        </div>
+        <div class="loc-info-row">
+          <div class="loc-info-ic"><i class="fa-solid fa-globe"></i></div>
+          <div>
+            <div class="loc-info-lbl" data-en="Time Zone" data-fa="منطقه زمانی">Time Zone</div>
+            <div class="loc-info-val" id="loc-tz-val">—</div>
+          </div>
+        </div>
+        <div class="loc-info-row">
+          <div class="loc-info-ic"><i class="fa-solid fa-laptop-code"></i></div>
+          <div>
+            <div class="loc-info-lbl" data-en="Work Mode" data-fa="نوع همکاری">Work Mode</div>
+            <div class="loc-info-val" data-en="Remote & On-site" data-fa="دورکاری و حضوری">Remote & On-site</div>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn btn-p loc-info-cta"><i class="fa-solid fa-paper-plane"></i><span data-en="Get in Touch" data-fa="تماس با من">Get in Touch</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ BOOKING ═══════════════════ -->
+<!-- رزرو وقت / نوبت‌دهی -->
+<section id="booking" class="sec" style="background:var(--bg3)">
+  <div class="inner">
+    <div style="margin-bottom:40px">
+      <span class="sec-label" data-en="10 — Book a Meeting" data-fa="۱۰ — رزرو جلسه">10 — Book a Meeting</span>
+      <h2 class="sec-title"><span data-en="Schedule a " data-fa="رزرو ">Schedule a </span><span class="grad" data-en="Session" data-fa="جلسه">Session</span></h2>
+    </div>
+    <div class="booking-wrap">
+      <div class="booking-grid">
+        <div class="booking-card">
+          <h4 data-en="Select a Date — January 2025" data-fa="تاریخ انتخاب کنید — دی ۱۴۰۳">Select a Date — January 2025</h4>
+          <div class="cal-grid" id="cal-grid">
+            <div class="cal-header">Su</div><div class="cal-header">Mo</div><div class="cal-header">Tu</div><div class="cal-header">We</div><div class="cal-header">Th</div><div class="cal-header">Fr</div><div class="cal-header">Sa</div>
+          </div>
+        </div>
+        <div class="booking-card">
+          <h4 data-en="Available Times" data-fa="زمان‌های موجود">Available Times</h4>
+          <div class="time-slots" id="time-slots">
+            <button class="ts" onclick="selectTime(this)">09:00 AM</button>
+            <button class="ts" onclick="selectTime(this)">10:00 AM</button>
+            <button class="ts" onclick="selectTime(this)">11:00 AM</button>
+            <button class="ts" onclick="selectTime(this)">01:00 PM</button>
+            <button class="ts" onclick="selectTime(this)">02:00 PM</button>
+            <button class="ts" onclick="selectTime(this)">03:00 PM</button>
+            <button class="ts" onclick="selectTime(this)">04:00 PM</button>
+            <button class="ts" onclick="selectTime(this)">05:00 PM</button>
+          </div>
+        </div>
+      </div>
+      <div class="booking-card" style="margin-bottom:0">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+          <div class="fg"><label data-en="Meeting Type" data-fa="نوع جلسه">Meeting Type</label>
+            <select style="padding:11px 13px;border-radius:11px;background:var(--glass);border:1px solid var(--bdr);color:var(--tx);font-family:var(--fn);font-size:.86rem;outline:none;width:100%">
+              <option data-en="Online Call (30 min)" data-fa="تماس آنلاین (۳۰ دقیقه)">Online Call (30 min)</option>
+              <option data-en="Technical Consultation" data-fa="مشاوره فنی">Technical Consultation</option>
+              <option data-en="Project Discussion" data-fa="بحث پروژه">Project Discussion</option>
+            </select>
+          </div>
+          <div class="fg"><label data-en="Your Name" data-fa="نام شما">Your Name</label><input type="text" placeholder="John Doe"></div>
+        </div>
+        <div class="fg" style="margin-bottom:14px"><label data-en="Notes (optional)" data-fa="یادداشت (اختیاری)">Notes (optional)</label><textarea rows="3" placeholder="What would you like to discuss?"></textarea></div>
+        <button class="btn btn-p" style="width:100%;justify-content:center" onclick="bookMeeting(this)"><i class="fa-solid fa-calendar-check"></i><span data-en="Confirm Booking" data-fa="تأیید رزرو">Confirm Booking</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<!-- پاورقی سایت (پایین صفحه) -->
+<footer>
+  <div class="footer-grid">
+    <div class="fb-brand"><h4>AHS.dev</h4><p data-en="Electrical Engineering student bridging industrial automation and modern software." data-fa="دانشجوی مهندسی برق که پل اتوماسیون صنعتی و نرم‌افزار مدرن را می‌سازد.">Electrical Engineering student bridging industrial automation and modern software.</p></div>
+    <div class="footer-col"><h5 data-en="Navigation" data-fa="ناوبری">Navigation</h5><ul><li><a href="#hero" data-en="Home" data-fa="خانه">Home</a></li><li><a href="#about" data-en="About" data-fa="درباره">About</a></li><li><a href="#skills" data-en="Skills" data-fa="مهارت‌ها">Skills</a></li><li><a href="#projects" data-en="Projects" data-fa="پروژه‌ها">Projects</a></li></ul></div>
+    <div class="footer-col"><h5 data-en="More" data-fa="بیشتر">More</h5><ul><li><a href="#code-lib" data-en="Code Library" data-fa="کتابخانه کد">Code Library</a></li><li><a href="#testimonials" data-en="Testimonials" data-fa="نظرات">Testimonials</a></li><li><a href="#blog" data-en="Blog" data-fa="بلاگ">Blog</a></li><li><a href="#pdfs" data-en="PDF Library" data-fa="کتابخانه PDF">PDF Library</a></li><li><a href="#booking" data-en="Book Meeting" data-fa="رزرو جلسه">Book Meeting</a></li><li><a href="rss.xml" class="rss-link" target="_blank"><i class="fa-solid fa-rss"></i> RSS Feed</a></li></ul></div>
+    <div class="footer-col"><h5 data-en="Connect" data-fa="ارتباط">Connect</h5><ul><li><a href="https://github.com/amirhooseinsekhavatfar-cloud" target="_blank" class="lnk-github">GitHub</a></li><li><a href="https://linkedin.com/in/amirhosins" target="_blank" class="lnk-linkedin">LinkedIn</a></li><li><a href="https://t.me/AmirHosinSekhavatfar" target="_blank" class="lnk-telegram">Telegram</a></li><li><a href="mailto:amirhooseinsekhavatfar@gmail.com" class="lnk-email">Email</a></li></ul></div>
+  </div>
+  <div class="footer-bot">
+    <span data-en="© 2025 Amir Hosin Sekhavatfar. All rights reserved." data-fa="© ۱۴۰۴ امیرحسین سخاوتفر. تمام حقوق محفوظ است.">© 2025 Amir Hosin Sekhavatfar. All rights reserved.</span>
+    <div class="f-soc"><a href="https://github.com/amirhooseinsekhavatfar-cloud" target="_blank" class="lnk-github"><i class="fab fa-github"></i></a><a href="https://linkedin.com/in/amirhosins" target="_blank" class="lnk-linkedin"><i class="fab fa-linkedin-in"></i></a><a href="https://t.me/AmirHosinSekhavatfar" target="_blank" class="lnk-telegram"><i class="fab fa-telegram"></i></a></div>
+  </div>
+</footer>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<!-- ═══════════════════ SITE CONTENT DATA FILES ═══════════════════ -->
+<!-- برای تغییر محتوای سایت فقط فایل‌های داخل js/data/ رو ویرایش کن -->
+<!-- To edit site content, ONLY edit the files inside js/data/ -->
+<script src="js/data/site-config.js" defer></script>
+<script src="js/data/skills.js" defer></script>
+<script src="js/data/projects.js" defer></script>
+<script src="js/data/achievements.js" defer></script>
+<script src="js/data/posts.js" defer></script>
+<script src="js/data/posts-settings.js" defer></script>
+<script src="js/data/blog-posts.js" defer></script>
+<script src="js/data/latest-activity.js" defer></script>
+<script src="js/data/experience.js" defer></script>
+<script src="js/data/journey-resume.js" defer></script>
+<script src="js/data/codes.js" defer></script>
+<script src="js/data/pdfs.js" defer></script>
+<script src="js/data/videos.js" defer></script>
+<script src="js/data/simlink-posts.js" defer></script>
+<script src="js/data/chatbot-knowledge.js" defer></script>
+<script src="js/data/faq-knowledge.js" defer></script>
+<script src="js/data/testimonials.js" defer></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+<script src="js/interactions.js" defer></script>
+<script src="js/shatter-glass.js" defer></script>
+
+<!-- ═══════════════════ SIMLINK PAGE ═══════════════════ -->
+<!-- صفحه سیم‌لینک -->
+
+<div id="simlink-page">
+  <div class="sl-topbar">
+    <button class="sl-back-btn" onclick="closeSimLink()"><i class="fa-solid fa-arrow-right"></i> بازگشت</button>
+    <div class="sl-topbar-title">
+      <i class="fa-solid fa-diagram-project"></i>
+      لیست سیمولینک پروژه‌ها
+      <span class="sl-topbar-badge" id="sl-badge-count">0 پست</span>
+    </div>
+  </div>
+  <div class="sl-body">
+    <div class="sl-header-card">
+      <div class="sl-header-icon"><i class="fa-solid fa-diagram-project"></i></div>
+      <div class="sl-header-info">
+        <h2>لیست سیمولینک پروژه‌ها</h2>
+        <p>این صفحه مخصوص لینک‌ها، توضیحات و به‌روزرسانی‌های پروژه‌های سیمولینک است. می‌توانید پست‌هایی با عکس، لینک سایت، ویدیو و هشتگ اضافه کنید.</p>
+      </div>
+    </div>
+    <div class="sl-feed" id="sl-feed">
+      <div class="sl-empty" id="sl-empty">
+        <i class="fa-solid fa-diagram-project"></i>
+        <p>هنوز پستی اضافه نشده است.<br>برای افزودن پست جدید، فایل <strong>js/data/simlink-posts.js</strong> را ویرایش کنید.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ AI CHATBOT ═══════════════════ -->
+<!-- ربات گفتگوی هوشمند -->
+<div id="ai-chat-bubble">
+  <div id="ai-chat-window">
+    <div class="chat-header">
+      <div class="chat-avatar"><i class="fa-solid fa-robot"></i><div class="chat-avatar-dot"></div></div>
+      <div class="chat-header-info">
+        <h4 data-en="Amir's AI Assistant" data-fa="دستیار هوش مصنوعی امیر">Amir's AI Assistant</h4>
+        <span><i class="fa-solid fa-circle" style="font-size:.45rem"></i> Online — Ask me anything</span>
+      </div>
+      <button type="button" class="chat-lang-toggle" id="chat-lang-toggle" onclick="toggleChatLang()" title="Chat language / زبان چت">
+        <i class="fa-solid fa-globe"></i>
+        <span id="chat-lang-toggle-lbl">فا</span>
+      </button>
+      <button class="chat-close" onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="chat-messages" id="chat-messages">
+      <div class="chat-msg bot" id="chat-welcome" data-en="👋 Hi! I'm an AI assistant for Amir Hosin's portfolio. Ask me about his skills, projects, experience, or how to get in touch!" data-fa="👋 سلام! من دستیار هوش مصنوعی پورتفولیوی امیرحسین هستم. درباره‌ی مهارت‌ها، پروژه‌ها، تجربه یا راه‌های تماس ازم بپرس!">👋 Hi! I'm an AI assistant for Amir Hosin's portfolio. Ask me about his skills, projects, experience, or how to get in touch!</div>
+    </div>
+
+    <!-- Floating FAQ popup: stays in the DOM permanently, only toggles visibility -->
+    <div class="chat-faq-popup" id="chat-faq-popup">
+      <div class="chat-faq-popup-inner">
+        <button type="button" class="chat-faq-popup-close" onclick="toggleChatFaq(false)" aria-label="close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="chat-faq-slider" id="chat-faq-slider"></div>
+      </div>
+    </div>
+
+    <div class="chat-input-area">
+      <button type="button" class="chat-faq-ball" id="chat-faq-ball" onclick="toggleChatFaq()" title="Suggested questions" aria-label="Suggested questions">
+        <i class="fa-solid fa-lightbulb"></i>
+      </button>
+      <input class="chat-input" id="chat-input" type="text" placeholder="Ask about Amir..." data-ph-en="Ask about Amir..." data-ph-fa="درباره‌ی امیر بپرس..." onkeydown="if(event.key==='Enter')sendChat()">
+      <button class="chat-send" onclick="sendChat()"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </div>
+  <button id="ai-chat-fab" onclick="toggleChat()" title="Chat with AI Assistant">
+    <i class="fa-solid fa-robot" id="chat-fab-icon"></i>
+    <div id="ai-chat-badge">AI</div>
+  </button>
+</div>
+
+
+<!-- ═══════════════════ LOCATION MAP — EXPANDED OVERLAY ═══════════════════ -->
+<!-- نمای بزرگ‌شده نقشه موقعیت مکانی -->
+<div class="loc-map-overlay" id="loc-map-overlay" onclick="if(event.target===this)toggleLocationMap()">
+  <div class="loc-map-overlay-card">
+    <button class="loc-map-close" onclick="toggleLocationMap()"><i class="fa-solid fa-xmark"></i></button>
+    <iframe class="loc-map-iframe" id="loc-map-iframe-lg" title="Yasuj, Iran map" loading="lazy"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=51.5230%2C30.6182%2C51.6530%2C30.7182&amp;marker=30.6682%2C51.5880&amp;layer=mapnik"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="loc-map-ping loc-map-ping-lg">
+      <span class="loc-ping-ring"></span>
+      <span class="loc-ping-dot"></span>
+    </div>
+    <div class="loc-map-overlay-info">
+      <div class="loc-map-name loc-map-name-lg" id="loc-name-val-lg" data-en="Location Name" data-fa="نام موقعیت مکانی">Location Name</div>
+      <div class="loc-map-coords loc-map-coords-lg" id="loc-coords-val-lg">0.0000° N, 0.0000° E</div>
+    </div>
+  </div>
+</div>
+<script src="js/chatbot/config.js" defer></script>
+<script src="js/chatbot/utils.js" defer></script>
+<script src="js/chatbot/normalizer.js" defer></script>
+<script src="js/chatbot/synonyms.js" defer></script>
+<script src="js/chatbot/search.js" defer></script>
+<script src="js/chatbot/ranking.js" defer></script>
+<script src="js/chatbot/intent.js" defer></script>
+<script src="js/chatbot/memory.js" defer></script>
+<script src="js/chatbot/context.js" defer></script>
+<script src="js/chatbot/history.js" defer></script>
+<script src="js/chatbot/answer.js" defer></script>
+<script src="js/chatbot/engine.js" defer></script>
+<script src="js/chatbot/faq-slider.js" defer></script>
+<script src="js/chatbot/pdf-knowledge.js" defer></script>
+
+
+
+<script src="js/app.js" defer></script>
+<script src="js/features.js" defer></script>
+
+</body>
+</html>

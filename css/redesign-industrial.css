@@ -1,0 +1,473 @@
+/* ==========================================================
+   REDESIGN: Control Panel / DIN-rail industrial theme
+   لایه‌ی ری‌دیزاین — بعد از main.css لود می‌شه و روش رو بازنویسی می‌کنه
+   حس‌وحال: تابلوی برق صنعتی / ماژول PLC روی ریل — نه دکوریِ صرف،
+   بلکه واژگان بصریِ خودِ کار امیرحسین (پنل، ترمینال، LED وضعیت، رد مدار)
+   ========================================================== */
+
+:root {
+  /* --- پالت جدید: تابلوی کنترل صنعتی --- */
+  --bg: #0A0D10;
+  --bg2: #12171C;
+  --bg3: #0D1114;
+
+  --ac: #FFB020;
+  /* کهربایی — LED پاور/هشدار */
+  --ac2: #29D3C7;
+  /* فیروزه‌ای — LED اجرا/RUN */
+  --ac3: #6EE7A8;
+  /* سبز — LED سالم/OK */
+  --fault: #FF5D5D;
+  /* قرمز — فقط برای خطا/هاور نادر */
+
+  --glow: rgba(255, 176, 32, .32);
+  --glow2: rgba(41, 211, 199, .16);
+
+  --tx: #E8EDF0;
+  --tx2: #8695A0;
+  --tx3: #4A5760;
+
+  --bdr: rgba(255, 176, 32, .15);
+  --glass: rgba(18, 23, 28, .64);
+  --glass2: rgba(255, 176, 32, .065);
+
+  --r: 6px;
+  --r2: 10px;
+}
+
+/* ---------- پس‌زمینه: رد مدار چاپی (PCB) به‌جای گرید نقطه‌ای (فقط حالت تیره) ---------- */
+body:not(.light) {
+  background:
+    radial-gradient(circle at 3px 3px, rgba(41, 211, 199, .35) 1px, transparent 1.6px) 0 0/46px 46px,
+    linear-gradient(rgba(255, 176, 32, .05) 1px, transparent 1px) 0 0/46px 46px,
+    linear-gradient(90deg, rgba(255, 176, 32, .05) 1px, transparent 1px) 0 0/46px 46px,
+    var(--bg) !important;
+  animation: circuitDrift 40s linear infinite !important;
+}
+
+@keyframes circuitDrift {
+  0% {
+    background-position: 0 0, 0 0, 0 0;
+  }
+
+  100% {
+    background-position: 0 0, 46px 92px, 46px 92px;
+  }
+}
+
+/* تک تیر نور که گاه‌به‌گاه از بالای صفحه رد می‌شه، مثل پالس روی خط مدار (فقط حالت تیره) */
+body:not(.light)::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, rgba(41, 211, 199, .05) 50%, transparent 100%);
+  background-size: 100% 260px;
+  animation: pcbPulse 7s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+@keyframes pcbPulse {
+  0% {
+    background-position: 0 -30vh
+  }
+
+  100% {
+    background-position: 0 130vh
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:not(.light) {
+    animation: none !important;
+  }
+
+  body:not(.light)::before {
+    display: none !important;
+  }
+}
+
+/* ---------- نوار ناوبری: ریل فلزی نازک ---------- */
+nav {
+  background: rgba(10, 13, 16, .78) !important;
+  border-bottom: 1px solid rgba(255, 176, 32, .18) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .04) inset;
+}
+
+nav.scrolled,
+nav.cin-scrolled {
+  background: rgba(10, 13, 16, .96) !important;
+}
+
+.nav-logo {
+  letter-spacing: .04em;
+}
+
+/* ---------- برچسب بخش‌ها → قرائت‌گر ترمینال با LED چشمک‌زن ---------- */
+.sec-label {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 9px;
+  padding: 5px 12px 5px 10px;
+  border: 1px solid var(--bdr);
+  border-radius: 3px;
+  background: var(--glass2);
+  letter-spacing: .16em !important;
+  color: var(--ac2) !important;
+}
+
+.sec-label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ac);
+  box-shadow: 0 0 7px var(--ac), 0 0 2px var(--ac);
+  flex-shrink: 0;
+  animation: ledBlink 2.4s ease-in-out infinite;
+}
+
+@keyframes ledBlink {
+
+  0%,
+  100% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: .35
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sec-label::before {
+    animation: none;
+  }
+}
+
+.sec-title {
+  letter-spacing: -.01em;
+}
+
+.grad {
+  background: linear-gradient(90deg, var(--ac2), var(--ac3), var(--ac), var(--ac2)) !important;
+  background-size: 300% auto !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* ---------- دکمه‌ها → کلید تابلو برق ---------- */
+.btn {
+  border-radius: var(--r) !important;
+  letter-spacing: .03em;
+}
+
+.btn-p {
+  background: linear-gradient(180deg, var(--ac) 0%, #E0910A 100%) !important;
+  color: #10151A !important;
+  font-weight: 700 !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .35) inset, 0 3px 0 #A8690A, 0 6px 18px rgba(255, 176, 32, .3) !important;
+  animation: none !important;
+}
+
+.btn-p:hover {
+  transform: translateY(1px) !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .35) inset, 0 2px 0 #A8690A, 0 4px 14px rgba(255, 176, 32, .4) !important;
+}
+
+.btn-o {
+  border: 1.5px solid var(--bdr) !important;
+  background: var(--glass2) !important;
+}
+
+.btn-o:hover {
+  border-color: var(--ac2) !important;
+  color: var(--ac2) !important;
+}
+
+/* ---------- کارت‌ها/پنل‌ها → بلوک ترمینال روی ریل DIN ---------- */
+.gc,
+.hcard,
+.pc,
+.sk,
+.pdf-card,
+.booking-card,
+.tool-card {
+  border-radius: var(--r2) !important;
+  border-color: rgba(255, 255, 255, .07) !important;
+  position: relative;
+}
+
+/* نوار LED بالای هر کارت — رنگش با هاور روشن می‌شه */
+.gc::after,
+.hcard::after,
+.pc::after,
+.sk::after,
+.pdf-card::after,
+.booking-card::after,
+.tool-card::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 14px !important;
+  right: 14px !important;
+  bottom: auto !important;
+  width: auto !important;
+  height: 2px !important;
+  border: none !important;
+  background: linear-gradient(90deg, transparent, var(--tx3), transparent) !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: background .3s ease !important;
+}
+
+.gc:hover::after,
+.hcard:hover::after,
+.pc:hover::after,
+.sk:hover::after,
+.pdf-card:hover::after,
+.booking-card:hover::after,
+.tool-card:hover::after {
+  background: linear-gradient(90deg, transparent, var(--ac2), transparent) !important;
+  box-shadow: 0 0 10px var(--glow2);
+}
+
+/* پیچ‌های فلزیِ گوشه — امضای بصری این طراحی، با ۴ لایه‌ی background-image
+   (این‌طوری رنگِ زمینه‌ی اصلیِ کارت که از main.css میاد دست‌نخورده می‌مونه) */
+.gc,
+.hcard,
+.pc,
+.sk,
+.pdf-card,
+.booking-card,
+.tool-card {
+  background-image:
+    radial-gradient(circle at 35% 30%, #d8d8d8, #4b4b4b 70%),
+    radial-gradient(circle at 35% 30%, #d8d8d8, #4b4b4b 70%),
+    radial-gradient(circle at 35% 30%, #d8d8d8, #4b4b4b 70%),
+    radial-gradient(circle at 35% 30%, #d8d8d8, #4b4b4b 70%) !important;
+  background-repeat: no-repeat !important;
+  background-size: 5px 5px !important;
+  background-position:
+    8px 8px,
+    calc(100% - 8px) 8px,
+    8px calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px) !important;
+}
+
+.gc:hover,
+.pc:hover {
+  border-color: rgba(41, 211, 199, .35) !important;
+}
+
+/* ---------- نشان «آماده همکاری» در هیرو → چراغ وضعیتِ روی پنل ---------- */
+.hero-badge {
+  border-radius: 4px !important;
+  font-weight: 600;
+}
+
+.hero-badge .dot {
+  background: var(--ac3) !important;
+  box-shadow: 0 0 8px var(--ac3) !important;
+}
+
+.hero-typing {
+  color: var(--ac2) !important;
+}
+
+.stat-num {
+  background: linear-gradient(135deg, var(--ac), var(--ac2)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+/* ---------- انتخاب متن و اسکرول‌بار هم‌راستا با پالت جدید ---------- */
+::selection {
+  background: var(--ac);
+  color: #10151A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--ac2), var(--ac)) !important;
+}
+
+/* ==========================================================
+   بخش دوم ری‌دیزاین — پوشش عمیق‌تر روی مؤلفه‌های باقی‌مانده
+   ========================================================== */
+
+/* ---------- نوارهای مهارت → مثل متر LED روی تجهیزات صنعتی، قطعه‌قطعه ---------- */
+.sb-bg {
+  height: 6px !important;
+  border-radius: 3px !important;
+  background: repeating-linear-gradient(90deg,
+      rgba(255, 255, 255, .07) 0,
+      rgba(255, 255, 255, .07) 6px,
+      transparent 6px,
+      transparent 8px) !important;
+}
+
+.sb-fill {
+  border-radius: 3px !important;
+  background: repeating-linear-gradient(90deg,
+      var(--ac) 0,
+      var(--ac) 6px,
+      transparent 6px,
+      transparent 8px) !important;
+  background-size: 100% 100% !important;
+  position: relative;
+}
+
+.sb-fill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--ac2), var(--ac));
+  mix-blend-mode: color;
+  opacity: .35;
+}
+
+.sb-lbl span:last-child {
+  color: var(--ac) !important;
+}
+
+.ski {
+  border-radius: 4px !important;
+}
+
+/* ---------- برچسب‌ها/بج‌ها → چیپ ترمینالیِ یکدست با فونت مونو ---------- */
+.tag,
+.reel-tag,
+.exp-tl-tag {
+  border-radius: 3px !important;
+  font-family: var(--mo) !important;
+  letter-spacing: .02em;
+}
+
+.fi-badge,
+.b-proj,
+.b-cert,
+.b-act,
+.b-post,
+.exp-tl-badge,
+.reel-category-badge,
+.video-cat-badge,
+.post-cat-badge,
+.blog-cat {
+  border-radius: 3px !important;
+  font-family: var(--mo) !important;
+}
+
+/* ---------- فرم تماس → ورودی‌های تابلوییِ گوشه‌تیز با فونت مونو ---------- */
+.fg input,
+.fg textarea {
+  border-radius: 4px !important;
+  font-family: var(--mo) !important;
+  background: rgba(0, 0, 0, .18) !important;
+}
+
+.fg input:focus,
+.fg textarea:focus {
+  box-shadow: 0 0 0 3px var(--glow2) !important;
+  border-color: var(--ac2) !important;
+}
+
+.fg label {
+  font-family: var(--mo);
+  font-size: .7rem !important;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.fi {
+  border-radius: 4px !important;
+}
+
+.fi-ico {
+  border-radius: 4px !important;
+}
+
+/* ---------- خط زمانیِ رزومه/تجربه → پین‌های اتصال به‌جای دایره‌ی ساده ---------- */
+.tl-dot,
+.exp-tl-dot {
+  border-radius: 3px !important;
+  transform: rotate(45deg);
+  background: var(--ac) !important;
+  box-shadow: 0 0 8px var(--ac) !important;
+}
+
+.tl::before,
+.exp-timeline::before {
+  background: linear-gradient(to bottom, var(--ac2), transparent) !important;
+  width: 1.5px !important;
+}
+
+/* ---------- فوتر → ریل جداکننده‌ی نازک بالا + آیکون‌های مربعی ---------- */
+.footer-grid {
+  border-top: 1px solid var(--bdr);
+  padding-top: 40px;
+}
+
+.f-soc a {
+  border-radius: 4px !important;
+}
+
+/* ---------- نوار پیشرفت اسکرول + دکمه‌ی برگشت به بالا ---------- */
+#scroll-progress {
+  background: linear-gradient(90deg, var(--ac), var(--ac2)) !important;
+}
+
+#back-top {
+  border-radius: 4px !important;
+  border: 1px solid var(--bdr) !important;
+}
+
+/* ---------- لودر اولیه → صفحه‌ی «راه‌اندازی سیستم» ---------- */
+.loader-bar-wrap {
+  border-radius: 3px !important;
+  background: repeating-linear-gradient(90deg,
+      rgba(255, 255, 255, .08) 0,
+      rgba(255, 255, 255, .08) 6px,
+      transparent 6px,
+      transparent 8px) !important;
+}
+
+.loader-bar {
+  background: linear-gradient(90deg, var(--ac2), var(--ac)) !important;
+}
+
+.loader-pct {
+  font-family: var(--mo) !important;
+  color: var(--ac) !important;
+}
+
+/* ---------- کارت پروفایل/آمار گیت‌هاب و کارت نقشه → هم‌راستا با پنل شیشه‌ای ---------- */
+.gh-repo-card,
+.gh-profile-card,
+.loc-map-card,
+.qr-contact-card,
+.ach-card {
+  border-radius: var(--r2) !important;
+}
+
+.gh-stat-n {
+  font-family: var(--mo) !important;
+  color: var(--ac) !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sb-fill {
+    transition: width 1.2s cubic-bezier(.4, 0, .2, 1) .3s, background-position .3s !important;
+  }
+}
+
+/* ---------- فوکوس کیبورد (دسترس‌پذیری) ---------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--ac2) !important;
+  outline-offset: 2px;
+}

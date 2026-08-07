@@ -1,0 +1,8 @@
+# robots.txt
+# اگه دامنه‌ی سایتت عوض شد یا سایت رو جای دیگه‌ای دیپلوی کردی،
+# فقط خط Sitemap پایین رو با آدرس واقعی سایتت جایگزین کن.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://your-domain.example/sitemap.xml
